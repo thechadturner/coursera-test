@@ -1,0 +1,22 @@
+
+
+--Project--
+C:\Users\Chad\Documents\Coursera\WebDev
+
+--Broswer Sync--
+browser-sync start --server --directory --files "*"
+
+--GIT--
+https://github.com/thechadturner/coursera-test.git
+
+git clone https://github.com/thechadturner/coursera-test.git
+
+git status
+git pull
+git commit -m "my commit message"
+git push
+
+--Tools--
+www.jsfiddle.net
+www.codepen.io
+www.css-tricks.com
