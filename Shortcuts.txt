@@ -5,6 +5,7 @@ C:\Users\Chad\Documents\Coursera\WebDev\MyProjects\site
 
 --Broswer Sync--
 browser-sync start --server --directory --files "*"
+browser-sync start --server --directory --files "**/*"
 
 --GIT--
 https://github.com/thechadturner/coursera-test.git
@@ -26,6 +27,8 @@ www.validator.w3.org - check if your page is compatable with the W3C standard
 www.w3schools.com - check most popular browswers
 www.csszengarden.com
 www.bootstrap.com
+www.balsamiq.com
+www.google.com/fonts
 
 --HTML Entity References--
 > is &gt;
