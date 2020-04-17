@@ -1,13 +1,7 @@
- (function(window) {
- 
-  var obj = {};
+var name = "";
+// Making an Ajax call here, i.e., sendGetRequest
+$ajaxUtils.sendGetRequest("someURL", function (request) {
+  name = "Coursera";
+});
 
-  obj.dreamOn = function () {
-   console.log("I want to see the global scope! Let me out!");
- };
-
- window.doer = obj;
- 
- })(window);
-
-doer.dreamOn();
+document.querySelector("#content").innerHTML = name;
