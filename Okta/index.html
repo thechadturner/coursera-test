@@ -28,10 +28,10 @@
       var oktaSignIn = new OktaSignIn({
         baseUrl: "https://dev-49934482.okta.com",
         clientId: "0oa7a868rPBR2zXEo5d6",
+        redirectUri: window.location.origin,
         authParams: {
-          issuer: "default",
+          issuer: "https://dev-49934482.okta.com/oauth2/default",
           responseType: ['token', 'id_token'],
-          display: 'page'
         }
       });
 
