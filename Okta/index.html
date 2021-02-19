@@ -24,6 +24,7 @@
       <div id="okta-login-container"></div>
       <button id="logout" class="button" onclick="logout()" style="display: none">Logout</button>
     </div>
+    
     <script type="text/javascript">
       var oktaSignIn = new OktaSignIn({
         baseUrl: "https://dev-49934482.okta.com",
@@ -65,10 +66,10 @@
         }
       });
 
-      // function logout() {
-      //   oktaSignIn.authClient.signOut();
-      //   oktaSignIn.show();
-      // }
+      function logout() {
+        oktaSignIn.authClient.signOut();
+        oktaSignIn.show();
+      }
     </script>
   </body>
 </html>
