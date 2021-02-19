@@ -42,6 +42,8 @@
             var accessToken = res[0];
             var idToken = res[1];
 
+            console.log(idToken)
+
             oktaSignIn.tokenManager.add('accessToken', accessToken);
             oktaSignIn.tokenManager.add('idToken', idToken);
 
