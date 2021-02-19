@@ -38,9 +38,10 @@
       oktaSignIn.authClient.session.exists().then(function(exists) {
         if (exists) {
           oktaSignIn.authClient.tokenManager.getTokens().then(({ accessToken, idToken }) => {
-            document.getElementById("messageBox").innerHTML = "Hello, " + idToken.claims.email + "! You just logged in! :)";
-            document.getElementById("logout").style.display = 'block';
-            oktaSignIn.hide();
+          	console.log(idToken)
+            // document.getElementById("messageBox").innerHTML = "Hello, " + idToken.claims.email + "! You just logged in! :)";
+            // document.getElementById("logout").style.display = 'block';
+            // oktaSignIn.hide();
           });
         } else {
           oktaSignIn.showSignInToGetTokens({
@@ -51,9 +52,11 @@
 
             oktaSignIn.authClient.tokenManager.setTokens(tokens)
 
-            document.getElementById("messageBox").innerHTML = "Hello, " + idToken.claims.email + "! You just logged in! :)";
-            document.getElementById("logout").style.display = 'block';
-            oktaSignIn.hide();
+            console.log(idToken)
+
+            // document.getElementById("messageBox").innerHTML = "Hello, " + idToken.claims.email + "! You just logged in! :)";
+            // document.getElementById("logout").style.display = 'block';
+            // oktaSignIn.hide();
           }).catch(function(error) {
             console.error(error)
           });
