@@ -23,15 +23,16 @@
       </div>
       <!-- where the sign-in form will be displayed -->
       <div id="okta-login-container"></div>
+      <button id="logout" class="button" onclick="logout()">Logout</button>
     </div>
     <script type="text/javascript">
       var oktaSignIn = new OktaSignIn({
         baseUrl: "https://dev-49934482.okta.com",
         clientId: "0oa7a868rPBR2zXEo5d6",
-        redirectUri: window.location.origin,
         authParams: {
-          issuer: "https://dev-49934482.okta.com/oauth2/default",
+          issuer: "default",
           responseType: ['token', 'id_token'],
+          display: 'page'
         }
       });
 
@@ -41,8 +42,6 @@
           function success(res) {
             var accessToken = res[0];
             var idToken = res[1];
-
-            console.log(idToken)
 
             oktaSignIn.tokenManager.add('accessToken', accessToken);
             oktaSignIn.tokenManager.add('idToken', idToken);
@@ -69,6 +68,13 @@
             }
           );
         });
+      }
+
+      function logout() {
+        console.log("signing out...")
+        oktaSignIn.signOut();
+        oktaSignIn.show();
+        location.reload()
       }
     </script>
   </body>
