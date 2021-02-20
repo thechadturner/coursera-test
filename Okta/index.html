@@ -43,6 +43,7 @@
             var accessToken = res[0];
             var idToken = res[1];
 
+            console.log(idToken)
             oktaSignIn.tokenManager.add('accessToken', accessToken);
             oktaSignIn.tokenManager.add('idToken', idToken);
 
@@ -57,6 +58,7 @@
         oktaSignIn.session.get(function (res) {
           // If we get here, the user is already signed in.
           if (res.status === 'ACTIVE') {
+            console.log(res)
             document.getElementById("messageBox").innerHTML = "Hello, " + res.login + "! You are *still* logged in! :)";
             return;
           }
