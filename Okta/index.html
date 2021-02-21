@@ -24,6 +24,7 @@
       <!-- where the sign-in form will be displayed -->
       <div id="okta-login-container"></div>
       <button id="logout" class="button" onclick="logout()">Logout</button>
+      <button id="info" class="button" onclick="info()">Info</button>
     </div>
     <script type="text/javascript">
       var oktaSignIn = new OktaSignIn({
@@ -58,6 +59,7 @@
         oktaSignIn.session.get(function (res) {
           // If we get here, the user is already signed in.
           if (res.status === 'ACTIVE') {
+          	console.log(this.props.auth.getUser())
             console.log(res)
             document.getElementById("messageBox").innerHTML = "Hello, " + res.login + "! You are *still* logged in! :)";
             return;
@@ -78,6 +80,12 @@
         oktaSignIn.show();
         location.reload()
       }
+
+	  // const info = async () => {
+	  // const response = await fetch('http://example.com/movies.json');
+	  // const myJson = await response.json(); //extract JSON from the http response
+	  // // do something with myJson
+	  // }
     </script>
   </body>
 </html>
