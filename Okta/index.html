@@ -33,7 +33,6 @@
         authParams: {
           issuer: "default",
           responseType: ['token', 'id_token'],
-          // scopes: ['openid', 'email', 'profile', 'projects', 'firstname'],
           display: 'page'
         }
       });
@@ -45,9 +44,9 @@
             var accessToken = res[0];
             var idToken = res[1];
 
+			console.log(accessToken)
             console.log(idToken)
-            console.log(accessToken)
-
+            
             oktaSignIn.tokenManager.add('accessToken', accessToken);
             oktaSignIn.tokenManager.add('idToken', idToken);
 
@@ -63,6 +62,10 @@
           // If we get here, the user is already signed in.
           if (res.status === 'ACTIVE') {
           	console.log(res)
+
+          	var uid = res.userId
+          	console.log(uid)
+			console.log(oktaSignIn.token)
 
             document.getElementById("messageBox").innerHTML = "Hello, " + res.login + "! You are logged in! :)";
             return;
