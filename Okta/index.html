@@ -59,9 +59,14 @@
         );
       } else {
         oktaSignIn.session.get(function (res) {
+          var accessToken = res[0];
+          var idToken = res[1];
+
           // If we get here, the user is already signed in.
           if (res.status === 'ACTIVE') {
-          	console.log(res)
+          	console.log(idToken)
+            console.log(accessToken)
+
             document.getElementById("messageBox").innerHTML = "Hello, " + res.login + "! You are *still* logged in! :)";
             return;
           }
