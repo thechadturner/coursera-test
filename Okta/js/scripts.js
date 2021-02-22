@@ -59,7 +59,7 @@ function logout() {
 function info() {
   jQuery.ajax({
       type: "POST",
-      url: 'php/scripts.php',
+      url: 'scripts.php',
       dataType: 'json',
       data: {functionname: 'add', arguments: [1, 2]},
 
