@@ -60,6 +60,8 @@
       } else {
       	oktaSignIn.session.get(function (res) {
 	      	var uid = res.userId
+	      	console.log(uid)
+	      	
 	      	const userClaims = oktaSignIn.session.getUser(uid)
 	      	console.log(userClaims)
       	});
