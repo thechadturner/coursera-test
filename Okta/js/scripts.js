@@ -57,6 +57,8 @@ function logout() {
 }
 
 function info() {
+  console.log('trying to exeute')
+
   jQuery.ajax({
       type: "POST",
       url: 'js/scripts.php',
@@ -73,4 +75,6 @@ function info() {
                     }
               }
   });
+  
+  console.log('after exeute')
 }
