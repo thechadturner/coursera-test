@@ -10,10 +10,10 @@
         margin: 2em 0;
       }
     </style>
-<!-- widget stuff here -->
+    <!-- widget stuff here -->
     <script src="https://ok1static.oktacdn.com/assets/js/sdk/okta-signin-widget/2.16.0/js/okta-sign-in.min.js" type="text/javascript"></script>
     <link href="https://ok1static.oktacdn.com/assets/js/sdk/okta-signin-widget/2.16.0/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
-    <link href="https://ok1static.oktacdn.com/assets/js/sdk/okta-signin-widget/2.16.0/css/okta-theme.css" type="text/css" rel="stylesheet"/> 
+    <link href="https://ok1static.oktacdn.com/assets/js/sdk/okta-signin-widget/2.16.0/css/okta-theme.css" type="text/css" rel="stylesheet"/>
   </head>
   <body>
     <div class="container">
@@ -22,17 +22,18 @@
         You are not logged in. Get outta here! Shoo! >:S
       </div>
       <!-- where the sign-in form will be displayed -->
-      <div id="widget-container"></div>
+      <div id="okta-login-container"></div>
       <button id="logout" class="button" onclick="logout()">Logout</button>
       <button id="info" class="button" onclick="info()">Info</button>
     </div>
-    <!-- <script type="text/javascript">
+    <script type="text/javascript">
       var oktaSignIn = new OktaSignIn({
         baseUrl: "https://dev-49934482.okta.com",
         clientId: "0oa7yhklz0BvikmFq5d6",
         authParams: {
           issuer: "default",
           responseType: ['token', 'id_token'],
+          scopes: ['openid', 'email', 'profile'],
           display: 'page'
         }
       });
@@ -64,7 +65,7 @@
             return;
           }
           oktaSignIn.renderEl(
-            { el: '#widget-container' },
+            { el: '#okta-login-container' },
             function success(res) {},
             function error(err) {
               console.error(err);
@@ -79,8 +80,6 @@
         oktaSignIn.show();
         location.reload()
       }
-    </script> -->
-
-    <script src="widget.js"></script>
+    </script>
   </body>
 </html>
