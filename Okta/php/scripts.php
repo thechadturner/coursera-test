@@ -16,6 +16,7 @@
 } -->
 
 <?php
+    echo ('hello')
     header('Content-Type: application/json');
 
     $aResult = array();
