@@ -24,7 +24,7 @@ signInWidgetConfig = {
   },
   baseUrl: 'https://dev-49934482.okta.com',
   clientId: '0oa7yhklz0BvikmFq5d6',
-  redirectUri: 'https://dev-49934482.okta.com',
+  // redirectUri: 'https://dev-49934482.okta.com',
   authParams: {
     issuer: 'https://live-widget.oktapreview.com/oauth2/ausexqn31sz3HMxdf0h7',
     responseType: ['id_token', 'token'],
