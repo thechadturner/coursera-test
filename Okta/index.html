@@ -63,7 +63,7 @@
           if (res.status === 'ACTIVE') {
           	console.log(res)
 
-			const userClaims = await oktaSignIn.getUser()
+			const userClaims = oktaSignIn.getUser()
 			console.log(userClaims)
 
             document.getElementById("messageBox").innerHTML = "Hello, " + res.login + "! You are logged in! :)";
