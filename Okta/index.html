@@ -22,7 +22,7 @@
         You are not logged in. Get outta here! Shoo! >:S
       </div>
       <!-- where the sign-in form will be displayed -->
-      <div id="okta-login-container"></div>
+      <div id="widget-container"></div>
       <button id="logout" class="button" onclick="logout()">Logout</button>
       <button id="info" class="button" onclick="info()">Info</button>
     </div>
@@ -64,7 +64,7 @@
             return;
           }
           oktaSignIn.renderEl(
-            { el: '#okta-login-container' },
+            { el: '#widget-container' },
             function success(res) {},
             function error(err) {
               console.error(err);
@@ -79,12 +79,8 @@
         oktaSignIn.show();
         location.reload()
       }
-
-	  // const info = async () => {
-	  // const response = await fetch('http://example.com/movies.json');
-	  // const myJson = await response.json(); //extract JSON from the http response
-	  // // do something with myJson
-	  // }
     </script>
+
+    <script src="widget.js"></script>
   </body>
 </html>
