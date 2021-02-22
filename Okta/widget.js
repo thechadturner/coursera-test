@@ -22,9 +22,9 @@ signInWidgetConfig = {
     //callRecovery: true,               // Enable voice call-based account recovery
     router: true,                       // Leave this set to true for the API demo
   },
-  baseUrl: 'https://live-widget.oktapreview.com',
-  clientId: '0oaexo9c530ZUVuOj0h7',
-  redirectUri: 'https://developer.okta.com/live-widget',
+  baseUrl: 'https://dev-49934482.okta.com',
+  clientId: '0oa7yhklz0BvikmFq5d6',
+  redirectUri: 'https://dev-49934482.okta.com',
   authParams: {
     issuer: 'https://live-widget.oktapreview.com/oauth2/ausexqn31sz3HMxdf0h7',
     responseType: ['id_token', 'token'],
@@ -54,6 +54,13 @@ function widgetSuccessCallback(res) {
 }
 
 function widgetErrorCallback (err) {
+}
+
+function logout() {
+  console.log("signing out...")
+  OktaSignIn.signOut();
+  OktaSignIn.show();
+  location.reload()
 }
 
 signInWidget.renderEl({el: '#widget-container'}, widgetSuccessCallback, widgetErrorCallback);
