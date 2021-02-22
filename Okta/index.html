@@ -58,9 +58,11 @@
           }
         );
       } else {
-      	var uid = res.userId
-      	const userClaims = oktaSignIn.session.getUser(uid)
-      	console.log(userClaims)
+      	oktaSignIn.session.get(function (res) {
+	      	var uid = res.userId
+	      	const userClaims = oktaSignIn.session.getUser(uid)
+	      	console.log(userClaims)
+      	});
 
         oktaSignIn.session.get(function (res) {
           // If we get here, the user is already signed in.
