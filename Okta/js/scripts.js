@@ -66,6 +66,8 @@ function info() {
       data: {functionname: 'add', arguments: [1, 2]},
 
       success: function (obj, textstatus) {
+                    console.log('inside funtion')
+
                     if( !('error' in obj) ) {
                         yourVariable = obj.result;
                         console.log(yourVariable);
@@ -75,6 +77,6 @@ function info() {
                     }
               }
   });
-  
+
   console.log('after exeute')
 }
