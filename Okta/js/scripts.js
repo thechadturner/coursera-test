@@ -10,12 +10,14 @@ var oktaSignIn = new OktaSignIn({
 
 var userInfo = undefined;
 
-function findInJSON(json, key) {
-	console.log(json)
-	
-	for(var i = 0; i < json.length; i++) {
-  		var obj = json[i];
-  		console.log(obj);
+function findInJSON(obj, key) {
+	console.log(obj)
+
+	for(var key in obj){
+	    if(obj.hasOwnProperty(key)){
+	        var value = obj[key];
+	        console.log(key,value);
+	    }
 	}
 }
 
