@@ -8,15 +8,16 @@ var oktaSignIn = new OktaSignIn({
   }
 });
 
-var userID = undefined;
-var userFirstName = undefined;
-var userLastName = undefined;
-var userLogin = undefined;
-var userEmail = undefined;
-var lastlogin = undefined;
-var status = undefined;
+// var userID = undefined;
+// var userFirstName = undefined;
+// var userLastName = undefined;
+// var userLogin = undefined;
+// var userEmail = undefined;
+// var lastlogin = undefined;
+// var status = undefined;
 
 function parseUserInfo(obj) {
+	let userInfo = {}
 	//console.log(obj)
 
 	for(var key in obj){
@@ -33,26 +34,34 @@ function parseUserInfo(obj) {
 						if (k_str === 'firstName') {
 							var v_str = v.toString().trim()
 
-							userFirstName = v_str
-							console.log(k_str,v_str);
+							//userFirstName = v_str
+							//console.log(k_str,v_str);
+
+							userInfo.firstName = val_str;
 						}
 						else if (k_str === 'lastName') {
 							var v_str = v.toString().trim()
 
-							userLastName = v_str
-							console.log(k_str,v_str);
+							//userLastName = v_str
+							//console.log(k_str,v_str);
+
+							userInfo.lastName = val_str;
 						}
 						else if (k_str === 'login') {
 							var v_str = v.toString().trim()
 
-							userLogin = v_str
-							console.log(k_str,v_str);
+							//userLogin = v_str
+							//console.log(k_str,v_str);
+
+							userInfo.login = val_str;
 						}
 						else if (k_str === 'email') {
 							var v_str = v.toString().trim()
 
-							userEmail = v_str
-							console.log(k_str,v_str);
+							//userEmail = v_str
+							//console.log(k_str,v_str);
+
+							userInfo.email = val_str;
 						}
 					}
 				}
@@ -60,23 +69,32 @@ function parseUserInfo(obj) {
 			else if (key_str === 'id') {
 				var val_str = val.toString().trim()
 
-				userID = val_str
-				console.log(key_str,val_str);
+				//userID = val_str
+				//console.log(key_str,val_str);
+
+				userInfo.id = val_str;
 			}
 			else if (key_str === 'lastLogin') {
 				var val_str = val.toString().trim()
 
-				lastLogin = val_str
-				console.log(key_str,val_str);
+				//lastLogin = val_str
+				//console.log(key_str,val_str);
+
+				userInfo.lastLogin = val_str;
 			}
 			else if (key_str === 'status') {
 				var val_str = val.toString().trim()
 
-				status = val_str
-				console.log(key_str,val_str);
+				//status = val_str
+				//console.log(key_str,val_str);
+
+				userInfo.status = val_str;
 			}
 		}
 	}
+
+	console.log(userInfo)
+	return userInfo
 }
 
 function parseGroupInfo(obj) {
@@ -155,10 +173,10 @@ if (oktaSignIn.token.hasTokensInUrl()) {
 
       window.location.hash='';
 
-      getUserInfo().done(function(userInfo){
-		parseUserInfo(userInfo)
-		getGroupInfo(userID)
-		document.getElementById("messageBox").innerHTML = "You have successfully logged in under the user name: " + userFirstName + "! :)";
+      getUserInfo().done(function(output){
+		let userInfo = parseUserInfo(output)
+		getGroupInfo(userInfo.id)
+		document.getElementById("messageBox").innerHTML = "You have successfully logged in under the user name: " + userInfo.firstName + "! :)";
 	  });
     },
     function error(err) {
@@ -171,10 +189,10 @@ else
   oktaSignIn.session.get(function (res) {
     // If we get here, the user is already signed in.
     if (res.status === 'ACTIVE') {
-	  getUserInfo().done(function(userInfo){
-      	parseUserInfo(userInfo)
-      	getGroupInfo(userID)
-      	document.getElementById("messageBox").innerHTML = "Howdy " + userFirstName + "! You are logged in! :)";
+	  getUserInfo().done(function(output){
+      	let userInfo = parseUserInfo(output)
+      	getGroupInfo(userInfo.id)
+      	document.getElementById("messageBox").innerHTML = "Howdy " + userInfo.firstName + "! You are logged in! :)";
 	  });
 
       return;
