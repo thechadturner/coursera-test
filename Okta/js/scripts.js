@@ -46,7 +46,7 @@ function getUserInfo() {
 	        withCredentials: true
 	    },
 	    success: function (res) {
-	    	console.log(res);
+	    	console.log("res: " + res);
 			output = res;
 			return res;
 	    },
