@@ -21,7 +21,7 @@ function getUserInfo() {
 };
 
 function getUserFirstName(userinfo) {
-	console.log(userinfo[1])
+	console.log(userinfo)
 
 	// userinfo.forEach((item) => {
  //        console.log(item)
