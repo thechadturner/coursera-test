@@ -21,9 +21,9 @@ function getUserInfo() {
 };
 
 function getUserFirstName(userinfo) {
-	let parsedJson = JSON.parse(userinfo);
+	console.log(userinfo)
 
-	parsedJson.forEach((item) => {
+	userinfo.forEach((item) => {
         console.log(item)
     });
 }
