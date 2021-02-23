@@ -29,6 +29,7 @@ function findValues(obj, key) {
 
 					if (k === 'firstName') {
 						var v_str = v.toString().trim()
+						console.log(v_str)
 
 						userFirstName = v_str
 					}
