@@ -8,19 +8,39 @@ var oktaSignIn = new OktaSignIn({
   }
 });
 
+// function getUserInfo() {
+// 	return Promise.resolve(jQuery.ajax({
+// 	    url: "https://dev-49934482.okta.com/api/v1/users/me",
+// 	    type: 'GET',
+// 	    dataType: 'json',
+// 	    contentType: 'application/json',
+// 	    xhrFields: {
+// 	        withCredentials: true
+// 	    }
+// 	}));
+// };
+
 function getUserInfo() {
-	return function success(res) {
-		Promise.resolve(jQuery.ajax({
-		    url: "https://dev-49934482.okta.com/api/v1/users/me",
-		    type: 'GET',
-		    dataType: 'json',
-		    contentType: 'application/json',
-		    xhrFields: {
-		        withCredentials: true
-		    }
-		}));
-	}
+	Promise.resolve(jQuery.ajax({
+	    url: "https://dev-49934482.okta.com/api/v1/users/me",
+	    type: 'GET',
+	    dataType: 'json',
+	    contentType: 'application/json',
+	    xhrFields: {
+	        withCredentials: true
+	    }
+	})).then(function(val) {
+		return val;
+	}, function(err) {
+		return undefined;
+	});
 };
+
+Promise.resolve('Success').then(function(value) {
+  console.log(value); // "Success"
+}, function(value) {
+  // not called
+});
 
 function getUserFirstName(userinfo) {
 	console.log(userinfo)
