@@ -56,7 +56,7 @@ else
     // If we get here, the user is already signed in.
     if (res.status === 'ACTIVE') {
       var userinfo = getUserInfo()
-      console.log(userinfo)
+      console.log(userinfo.responseJSON)
 
       document.getElementById("messageBox").innerHTML = "Hello, " + res.login + "! You are logged in! :)";
       return;
