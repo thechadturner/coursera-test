@@ -8,14 +8,6 @@ var oktaSignIn = new OktaSignIn({
   }
 });
 
-// var userID = undefined;
-// var userFirstName = undefined;
-// var userLastName = undefined;
-// var userLogin = undefined;
-// var userEmail = undefined;
-// var lastlogin = undefined;
-// var status = undefined;
-
 function parseUserInfo(obj) {
 	let userInfo = {}
 	//console.log(obj)
@@ -33,34 +25,18 @@ function parseUserInfo(obj) {
 
 						if (k_str === 'firstName') {
 							var v_str = v.toString().trim()
-
-							//userFirstName = v_str
-							//console.log(k_str,v_str);
-
 							userInfo.firstName = v_str;
 						}
 						else if (k_str === 'lastName') {
 							var v_str = v.toString().trim()
-
-							//userLastName = v_str
-							//console.log(k_str,v_str);
-
 							userInfo.lastName = v_str;
 						}
 						else if (k_str === 'login') {
 							var v_str = v.toString().trim()
-
-							//userLogin = v_str
-							//console.log(k_str,v_str);
-
 							userInfo.login = v_str;
 						}
 						else if (k_str === 'email') {
 							var v_str = v.toString().trim()
-
-							//userEmail = v_str
-							//console.log(k_str,v_str);
-
 							userInfo.email = v_str;
 						}
 					}
@@ -68,26 +44,14 @@ function parseUserInfo(obj) {
 			}
 			else if (key_str === 'id') {
 				var val_str = val.toString().trim()
-
-				//userID = val_str
-				//console.log(key_str,val_str);
-
 				userInfo.id = val_str;
 			}
 			else if (key_str === 'lastLogin') {
 				var val_str = val.toString().trim()
-
-				//lastLogin = val_str
-				//console.log(key_str,val_str);
-
 				userInfo.lastLogin = val_str;
 			}
 			else if (key_str === 'status') {
 				var val_str = val.toString().trim()
-
-				//status = val_str
-				//console.log(key_str,val_str);
-
 				userInfo.status = val_str;
 			}
 		}
@@ -99,6 +63,7 @@ function parseUserInfo(obj) {
 
 function parseGroupInfo(obj) {
 	let groups = []
+	//console.log(obj)
 
 	for (var r in obj) {
 		var row = obj[r]
