@@ -20,10 +20,8 @@ if (oktaSignIn.token.hasTokensInUrl()) {
       oktaSignIn.tokenManager.add('accessToken', accessToken);
       oktaSignIn.tokenManager.add('idToken', idToken);
 
-      userInfo = getUserInfo()
-
       window.location.hash='';
-      document.getElementById("messageBox").innerHTML = "Howdy " + userInfo.profile[1] + "! You successfully logged in! :)";
+      document.getElementById("messageBox").innerHTML = "Howdy! You successfully logged in! :)";
     },
     function error(err) {
       console.error(err);
@@ -35,15 +33,16 @@ else
   oktaSignIn.session.get(function (res) {
     // If we get here, the user is already signed in.
     if (res.status === 'ACTIVE') {
-      userInfo = getUserInfo()
-
-      document.getElementById("messageBox").innerHTML = "Howdy " + userInfo.profile[1] + "! You are logged in! :)";
+      document.getElementById("messageBox").innerHTML = "Howdy! You are logged in! :)";
       return;
     }
 
     oktaSignIn.renderEl(
       { el: '#okta-login-container' },
-      function success(res) {},
+      function success(res) {
+      	userInfo = getUserInfo()
+      	console.log(userInfo)
+      },
       function error(err) {
         console.error(err);
       }
