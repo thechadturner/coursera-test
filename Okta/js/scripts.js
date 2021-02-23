@@ -35,27 +35,22 @@ var oktaSignIn = new OktaSignIn({
 // });
 
 function getUserInfo() {
-	var output = null;
-
     $.ajax({
 	    url: "https://dev-49934482.okta.com/api/v1/users/me",
 	    type: 'GET',
 	    dataType: 'json',
 	    contentType: 'application/json',
+	    async: false,
 	    xhrFields: {
 	        withCredentials: true
 	    },
 	    success: function (res) {
-	    	console.log("res: " + res);
-			output = res;
-			return res;
+	    	return res;
 	    },
 	    error: function (err) {
-	    	console.log(err);
+	    	return undefined;
 	    }
 	});
-
-	return output;
 }
 
 if (oktaSignIn.token.hasTokensInUrl()) {
