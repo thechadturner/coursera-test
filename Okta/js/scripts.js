@@ -30,31 +30,49 @@ function findValues(obj) {
 						var k_str = k.toString().trim()
 						var v = val[k];
 
-						if (k_str === 'firstName') {
+						if (k_str === 'id') {
+							var v_str = v.toString().trim()
+
+							userID = v_str
+							console.log(k_str,v_str);
+						}
+						else if (k_str === 'firstName') {
 							var v_str = v.toString().trim()
 
 							userFirstName = v_str
+							console.log(k_str,v_str);
 						}
 						else if (k_str === 'lastName') {
 							var v_str = v.toString().trim()
 
 							userLastName = v_str
+							console.log(k_str,v_str);
 						}
-						
-						console.log(k,v);
+						else if (k_str === 'login') {
+							var v_str = v.toString().trim()
+
+							userLogin = v_str
+							console.log(k_str,v_str);
+						}
+						else if (k_str === 'email') {
+							var v_str = v.toString().trim()
+
+							userEmail = v_str
+							console.log(k_str,v_str);
+						}
 					}
 				}
 			}
 			else if (key_str === 'lastLogin') {
 				var val_str = val.toString().trim()
-				lastLogin = val_str
 
+				lastLogin = val_str
 				console.log(key_str,val_str);
 			}
 			else if (key_str === 'status') {
 				var val_str = val.toString().trim()
-				status = val_str
 
+				status = val_str
 				console.log(key_str,val_str);
 			}
 		}
