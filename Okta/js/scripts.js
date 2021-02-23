@@ -64,7 +64,7 @@ function getUserInfo() {
 	        withCredentials: true
 	    },
 	    success: function (data) {
-	        userInfo = data;
+	        userInfo = JSON.parse(data);
 	    },
 	    error: function(err){
 	        userInfo = undefined;
