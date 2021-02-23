@@ -20,18 +20,20 @@ function userPromise() {
 	}));
 };
 
-const getUserInfo = () => {
-  userPromise.then((a) => {
-    console.log(a);
+function getUserInfo(){
+  return userPromise().then(function(result){
+    return result;
   });
-};
+}
 
 function getUserFirstName(userinfo) {
 	console.log(userinfo)
 
-	// userinfo.forEach((item) => {
- //        console.log(item)
- //    });
+	if (userinfo != undefined) {
+		userinfo.forEach((item) => {
+        	console.log(item)
+    	});
+	}
 }
 
 if (oktaSignIn.token.hasTokensInUrl()) {
