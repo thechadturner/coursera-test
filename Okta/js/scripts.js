@@ -81,7 +81,9 @@ function parseUserInfo(obj) {
 
 function parseGroupInfo(obj) {
 	for (var r in obj) {
-		for(var key in obj[r]) {
+		var row = obj[r]
+		
+		for(var key in row) {
 			if (typeof key === 'string' || key instanceof String) {
 				var key_str = key.toString().trim()
 				var val = row[key];
