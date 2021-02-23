@@ -30,17 +30,12 @@ function getUserInfo() {
 	        withCredentials: true
 	    }
 	})).then(function(val) {
+		console.log(val)
 		return val;
 	}, function(err) {
 		return undefined;
 	});
 };
-
-Promise.resolve('Success').then(function(value) {
-  console.log(value); // "Success"
-}, function(value) {
-  // not called
-});
 
 function getUserFirstName(userinfo) {
 	console.log(userinfo)
