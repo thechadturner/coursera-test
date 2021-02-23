@@ -70,7 +70,7 @@ function getUserInfo() {
 	        return data;
 	    },
 	    error: function(err){
-	        return undefined;
+	        // return undefined;
 	    }
 	});
 }
