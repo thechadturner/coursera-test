@@ -33,16 +33,16 @@ else
   oktaSignIn.session.get(function (res) {
     // If we get here, the user is already signed in.
     if (res.status === 'ACTIVE') {
+      userInfo = getUserInfo()
+      console.log(userInfo)
+
       document.getElementById("messageBox").innerHTML = "Howdy! You are logged in! :)";
       return;
     }
 
     oktaSignIn.renderEl(
       { el: '#okta-login-container' },
-      function success(res) {
-      	userInfo = getUserInfo()
-      	console.log(userInfo)
-      },
+      function success(res) {},
       function error(err) {
         console.error(err);
       }
@@ -73,4 +73,8 @@ function getUserInfo() {
 	        return undefined;
 	    }
 	});
+}
+
+funtion info() {
+	console.log(getUserInfo())
 }
