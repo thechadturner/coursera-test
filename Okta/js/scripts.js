@@ -37,7 +37,7 @@ function parseUserInfo(obj) {
 							//userFirstName = v_str
 							//console.log(k_str,v_str);
 
-							userInfo.firstName = val_str;
+							userInfo.firstName = v_str;
 						}
 						else if (k_str === 'lastName') {
 							var v_str = v.toString().trim()
@@ -45,7 +45,7 @@ function parseUserInfo(obj) {
 							//userLastName = v_str
 							//console.log(k_str,v_str);
 
-							userInfo.lastName = val_str;
+							userInfo.lastName = v_str;
 						}
 						else if (k_str === 'login') {
 							var v_str = v.toString().trim()
@@ -53,7 +53,7 @@ function parseUserInfo(obj) {
 							//userLogin = v_str
 							//console.log(k_str,v_str);
 
-							userInfo.login = val_str;
+							userInfo.login = v_str;
 						}
 						else if (k_str === 'email') {
 							var v_str = v.toString().trim()
@@ -61,7 +61,7 @@ function parseUserInfo(obj) {
 							//userEmail = v_str
 							//console.log(k_str,v_str);
 
-							userInfo.email = val_str;
+							userInfo.email = v_str;
 						}
 					}
 				}
