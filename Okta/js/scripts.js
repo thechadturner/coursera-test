@@ -22,8 +22,25 @@ var userInfo = undefined;
 // 	}));
 // };
 
+// function getAjax(url, data){
+//     return $.ajax({
+//         type: 'POST',
+//         url : url,              
+//         data: data,
+//         dataType: 'JSON',
+//         //async: true,  //NOT NEEDED
+//         success: function(response) {
+//             //Data = response;
+//         }
+//     });
+//  }
+
+//  getAjax(youUrl, yourData).done(function(response){
+//     console.log(response);
+// });
+
 function getUserInfo() {
-    $.ajax({
+    return $.ajax({
 	    url: "https://dev-49934482.okta.com/api/v1/users/me",
 	    type: 'GET',
 	    dataType: 'json',
@@ -32,18 +49,14 @@ function getUserInfo() {
 	        withCredentials: true
 	    },
 	    success: function (res) {
-	    	processUserInfo(res);
-	    	return res;
-	    },
-	    error: function (err) {
-	    	return undefined;
 	    }
 	});
 }
 
-function processUserInfo(res) {
+getUserInfo().done(function(res){
 	userInfo = res;
-}
+    console.log(res);
+});
 
 if (oktaSignIn.token.hasTokensInUrl()) {
   oktaSignIn.token.parseTokensFromUrl(
