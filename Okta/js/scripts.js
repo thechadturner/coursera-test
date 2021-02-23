@@ -52,9 +52,9 @@ function logout() {
   location.reload()
 }
 
-var userInfo = undefined
-
 function getUserInfo() {
+	var userInfo = {}
+
 	jQuery.ajax({
 	    url: "https://dev-49934482.okta.com/api/v1/users/me",
 	    type: 'GET',
@@ -64,13 +64,15 @@ function getUserInfo() {
 	        withCredentials: true
 	    },
 	    success: function (data) {
-	        userInfo = JSON.stringify(data);
-	        console.log(JSON.stringify(data))
+	        userInfo = data;
 	    },
 	    error: function(err){
 	        userInfo = undefined;
 	    }
 	});
+
+	console.log(userInfo)
+	return userInfo
 }
 
 getUserInfo()
