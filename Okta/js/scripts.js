@@ -25,6 +25,8 @@ function getUserInfo() {
 }
 
 function getPromiseObject(promise) {
+	console.log(promise)
+	
     // Don't modify any promise that has been already modified.
     if (promise.isResolved) return promise;
 
