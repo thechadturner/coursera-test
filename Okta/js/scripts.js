@@ -21,7 +21,7 @@ if (oktaSignIn.token.hasTokensInUrl()) {
       oktaSignIn.tokenManager.add('idToken', idToken);
 
       window.location.hash='';
-      document.getElementById("messageBox").innerHTML = "Hello, " + idToken.claims.email + "! You just logged in! :)";
+      document.getElementById("messageBox").innerHTML = "Howdy " + getUserName() + "! You successfully logged in! :)";
     },
     function error(err) {
       console.error(err);
@@ -35,7 +35,7 @@ else
     if (res.status === 'ACTIVE') {
       var uid = res.userId
 
-      document.getElementById("messageBox").innerHTML = "Hello, " + res.login + "! You are logged in! :)";
+      document.getElementById("messageBox").innerHTML = "Howdy " + getUserName() + "! You are logged in! :)";
       return;
     }
 
@@ -70,6 +70,24 @@ function info() {
 	    },
 	    error: function(err){
 	        console.log(JSON.stringify(err));
+	    }
+	});
+}
+
+function getUserName() {
+	jQuery.ajax({
+	    url: "https://dev-49934482.okta.com/api/v1/users/me",
+	    type: 'GET',
+	    dataType: 'json',
+	    contentType: 'application/json',
+	    xhrFields: {
+	        withCredentials: true
+	    },
+	    success: function (data) {
+	        return data.profile.firstName;
+	    },
+	    error: function(err){
+	        return undefined
 	    }
 	});
 }
