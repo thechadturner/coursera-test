@@ -33,11 +33,11 @@ function findValues(obj, key) {
 		}
 		else if (key === 'lastLogin') {
 			lastLogin = val
-			console.log(key,value);
+			console.log(key,val);
 		}
 		else if (key === 'status') {
 			status = val
-			console.log(key,value);
+			console.log(key,val);
 		}
 	}
 }
