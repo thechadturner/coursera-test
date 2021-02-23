@@ -98,7 +98,7 @@ else
 	  getUserInfo().done(function(res){
       	userInfo = res;
 
-      	findInJSON(userInfo,'profile')
+      	findValues(userInfo,'profile')
 	  });
 
       document.getElementById("messageBox").innerHTML = "Hello, " + res.login + "! You are logged in! :)";
