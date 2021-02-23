@@ -14,8 +14,6 @@ if (oktaSignIn.token.hasTokensInUrl()) {
     function success(res) {
       var accessToken = res[0];
       var idToken = res[1];
-
-      var uid = idToken.userId
       
       oktaSignIn.tokenManager.add('accessToken', accessToken);
       oktaSignIn.tokenManager.add('idToken', idToken);
@@ -33,8 +31,8 @@ else
   oktaSignIn.session.get(function (res) {
     // If we get here, the user is already signed in.
     if (res.status === 'ACTIVE') {
-      var uid = res.userId
-
+      var userInfo = getUserInfo()
+      console.log(userInfo)
       document.getElementById("messageBox").innerHTML = "Hello, " + res.login + "! You are logged in! :)";
       return;
     }
@@ -70,6 +68,24 @@ function info() {
 	    },
 	    error: function(err){
 	        console.log(JSON.stringify(err));
+	    }
+	});
+}
+
+function getUserInfo() {
+	jQuery.ajax({
+	    url: "https://dev-49934482.okta.com/api/v1/users/me",
+	    type: 'GET',
+	    dataType: 'json',
+	    contentType: 'application/json',
+	    xhrFields: {
+	        withCredentials: true
+	    },
+	    success: function (data) {
+	        return data;
+	    },
+	    error: function(err){
+	        return undefined;
 	    }
 	});
 }
