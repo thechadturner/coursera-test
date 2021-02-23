@@ -8,7 +8,7 @@ var oktaSignIn = new OktaSignIn({
   }
 });
 
-function await getUserInfo() {
+function getUserInfo() {
 	return Promise.resolve(jQuery.ajax({
 	    url: "https://dev-49934482.okta.com/api/v1/users/me",
 	    type: 'GET',
@@ -21,11 +21,11 @@ function await getUserInfo() {
 };
 
 function getUserFirstName(userinfo) {
-	console.log(userinfo)
+	console.log(userinfo[1])
 
-	userinfo.forEach((item) => {
-        console.log(item)
-    });
+	// userinfo.forEach((item) => {
+ //        console.log(item)
+ //    });
 }
 
 if (oktaSignIn.token.hasTokensInUrl()) {
