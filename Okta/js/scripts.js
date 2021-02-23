@@ -48,6 +48,7 @@ function getUserInfo() {
 	    success: function (res) {
 	    	console.log(res);
 			output = res;
+			return res;
 	    },
 	    error: function (err) {
 	    	console.log(err);
