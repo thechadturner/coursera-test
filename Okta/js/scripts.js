@@ -20,21 +20,36 @@ var oktaSignIn = new OktaSignIn({
 // 	}));
 // };
 
-async function getUserInfo() {
-    info = await jQuery.ajax({
+// var output = "";
+// $.ajax({
+//     url: "/controller/GetOutput",
+//     type: 'Get',
+//     dataType: "json",
+
+//     success: function (result) {
+//         output = result; 
+//     },
+//     error: function failCallBk(XMLHttpRequest, textStatus, errorThrown) {
+//         alert("An error occurred while processing your request. Please try again.");
+//     }
+// });
+
+function getUserInfo() {
+    return jQuery.ajax({
 	    url: "https://dev-49934482.okta.com/api/v1/users/me",
 	    type: 'GET',
 	    dataType: 'json',
 	    contentType: 'application/json',
 	    xhrFields: {
 	        withCredentials: true
+	    },
+	    success: function (result) {
+			output = result;
+	    },
+	    error: function failCallBack(XMLHttpRequest, textStatus, errorThrown) {
+	    	console.log("An error occurred while processing your request. Please try again.");
 	    }
 	})
-if (info) {
-    return info;
-} else {
-    return null;
-  }
 }
 
 if (oktaSignIn.token.hasTokensInUrl()) {
@@ -61,7 +76,7 @@ else
     // If we get here, the user is already signed in.
     if (res.status === 'ACTIVE') {
       var userinfo = getUserInfo()
-      console.log(userinfo[1])
+      console.log(userinfo)
 
       document.getElementById("messageBox").innerHTML = "Hello, " + res.login + "! You are logged in! :)";
       return;
