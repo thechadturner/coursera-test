@@ -15,7 +15,7 @@ var userLogin = undefined;
 var lastlogin = undefined;
 var status = undefined;
 
-function findValues(obj, key) {
+function findValues(obj) {
 	console.log(obj)
 
 	for(var key in obj){
@@ -31,7 +31,6 @@ function findValues(obj, key) {
 
 						if (k_str === 'firstName') {
 							var v_str = v.toString().trim()
-							console.log(v_str)
 
 							userFirstName = v_str
 						}
@@ -97,6 +96,8 @@ if (oktaSignIn.token.hasTokensInUrl()) {
       getUserInfo().done(function(res){
 		userInfo = res;
 	  });
+
+	  findValues(userInfo)
       
       oktaSignIn.tokenManager.add('accessToken', accessToken);
       oktaSignIn.tokenManager.add('idToken', idToken);
@@ -116,9 +117,9 @@ else
     if (res.status === 'ACTIVE') {
 	  getUserInfo().done(function(res){
       	userInfo = res;
-
-      	findValues(userInfo,'profile')
 	  });
+
+	  findValues(userInfo)
 
       document.getElementById("messageBox").innerHTML = "Howdy " + userFirstName + "! You are logged in! :)";
       return;
