@@ -20,7 +20,7 @@ function findValues(obj, key) {
 	for(var key in obj){
 		var val = obj[key];
 
-		if (key = 'profile') {
+		if (key === 'profile') {
 			for(var k in val){
 				var v = val[k];
 
@@ -31,11 +31,11 @@ function findValues(obj, key) {
 				console.log(k,v);
 			}
 		}
-		else if (key = 'lastLogin') {
+		else if (key === 'lastLogin') {
 			lastLogin = val
 			console.log(key,value);
 		}
-		else if (key = 'status') {
+		else if (key === 'status') {
 			status = val
 			console.log(key,value);
 		}
