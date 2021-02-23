@@ -9,15 +9,17 @@ var oktaSignIn = new OktaSignIn({
 });
 
 function getUserInfo() {
-	return Promise.resolve(jQuery.ajax({
-	    url: "https://dev-49934482.okta.com/api/v1/users/me",
-	    type: 'GET',
-	    dataType: 'json',
-	    contentType: 'application/json',
-	    xhrFields: {
-	        withCredentials: true
-	    }
-	}));
+	return function success(res) {
+		Promise.resolve(jQuery.ajax({
+		    url: "https://dev-49934482.okta.com/api/v1/users/me",
+		    type: 'GET',
+		    dataType: 'json',
+		    contentType: 'application/json',
+		    xhrFields: {
+		        withCredentials: true
+		    }
+		}));
+	}
 };
 
 function getUserFirstName(userinfo) {
