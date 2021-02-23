@@ -79,6 +79,39 @@ function parseUserInfo(obj) {
 	}
 }
 
+funtion parseGroupInfo(obj) {
+	for (var row in obj) {
+		for(var key in row) {
+			if (typeof key === 'string' || key instanceof String) {
+				var key_str = key.toString().trim()
+				var val = row[key];
+
+				if (key_str === 'profile') {
+					for(var k in val){
+						if (typeof k === 'string' || k instanceof String) {
+							var k_str = k.toString().trim()
+							var v = val[k];
+
+							if (k_str === 'name') {
+								var v_str = v.toString().trim()
+
+								userFirstName = v_str
+								console.log(k_str,v_str);
+							}
+							else if (k_str === 'description') {
+								var v_str = v.toString().trim()
+
+								userLastName = v_str
+								console.log(k_str,v_str);
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
 function getUserInfo() {
     return $.ajax({
 	    url: "https://dev-49934482.okta.com/api/v1/users/me",
@@ -103,7 +136,7 @@ function getGroupInfo(userID) {
 	        withCredentials: true
 	    },
 	    success: function (res) {
-	    	console.log(res)
+	    	parseGroupInfo(res)
 	    }
 	});
 }
