@@ -16,8 +16,8 @@ var userEmail = undefined;
 var lastlogin = undefined;
 var status = undefined;
 
-function findValues(obj) {
-	console.log(obj)
+function parseUserInfo(obj) {
+	//console.log(obj)
 
 	for(var key in obj){
 		if (typeof key === 'string' || key instanceof String) {
@@ -30,13 +30,7 @@ function findValues(obj) {
 						var k_str = k.toString().trim()
 						var v = val[k];
 
-						if (k_str === 'id') {
-							var v_str = v.toString().trim()
-
-							userID = v_str
-							console.log(k_str,v_str);
-						}
-						else if (k_str === 'firstName') {
+						if (k_str === 'firstName') {
 							var v_str = v.toString().trim()
 
 							userFirstName = v_str
@@ -62,6 +56,12 @@ function findValues(obj) {
 						}
 					}
 				}
+			}
+			else if (key_str === 'id') {
+				var val_str = val.toString().trim()
+
+				userID = val_str
+				console.log(key_str,val_str);
 			}
 			else if (key_str === 'lastLogin') {
 				var val_str = val.toString().trim()
@@ -118,7 +118,7 @@ if (oktaSignIn.token.hasTokensInUrl()) {
       window.location.hash='';
 
       getUserInfo().done(function(res){
-		findValues(res)
+		parseUserInfo(res)
 		document.getElementById("messageBox").innerHTML = "You have successfully logged in under the user name: " + userFirstName + "! :)";
 	  });
       
@@ -135,7 +135,7 @@ else
     // If we get here, the user is already signed in.
     if (res.status === 'ACTIVE') {
 	  getUserInfo().done(function(res){
-      	findValues(res)
+      	parseUserInfo(res)
       	document.getElementById("messageBox").innerHTML = "Howdy " + userFirstName + "! You are logged in! :)";
 	  });
 
