@@ -66,7 +66,7 @@ function info() {
 	        withCredentials: true
 	    },
 	    success: function (data) {
-	        console.log(JSON.stringify(data));
+	        console.log(data);
 	    },
 	    error: function(err){
 	        console.log(JSON.stringify(err));
