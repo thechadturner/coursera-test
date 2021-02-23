@@ -75,8 +75,7 @@ function getUserInfo() {
 	return userInfo
 }
 
-getUserInfo()
-console.log(userInfo)
+console.log(getUserInfo())
 
 function info() {
 	jQuery.ajax({
