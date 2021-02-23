@@ -8,6 +8,21 @@ var oktaSignIn = new OktaSignIn({
   }
 });
 
+function getUserInfo() {
+	jQuery.ajax({
+	    url: "https://dev-49934482.okta.com/api/v1/users/me",
+	    type: 'GET',
+	    dataType: 'json',
+	    contentType: 'application/json',
+	    xhrFields: {
+	        withCredentials: true
+	    },
+	    success: function (data) {
+	        return data;
+	    }
+	});
+}
+
 if (oktaSignIn.token.hasTokensInUrl()) {
   oktaSignIn.token.parseTokensFromUrl(
     // If we get here, the user just logged in.
@@ -68,24 +83,6 @@ function info() {
 	    },
 	    error: function(err){
 	        console.log(JSON.stringify(err));
-	    }
-	});
-}
-
-function getUserInfo() {
-	jQuery.ajax({
-	    url: "https://dev-49934482.okta.com/api/v1/users/me",
-	    type: 'GET',
-	    dataType: 'json',
-	    contentType: 'application/json',
-	    xhrFields: {
-	        withCredentials: true
-	    },
-	    success: function (data) {
-	        return data;
-	    },
-	    error: function(err){
-	        return undefined;
 	    }
 	});
 }
