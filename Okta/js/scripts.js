@@ -37,10 +37,6 @@ if (info) {
   }
 }
 
-getUserInfo().then((res) => {
-    exports.info = res;
-});
-
 if (oktaSignIn.token.hasTokensInUrl()) {
   oktaSignIn.token.parseTokensFromUrl(
     // If we get here, the user just logged in.
@@ -65,7 +61,7 @@ else
     // If we get here, the user is already signed in.
     if (res.status === 'ACTIVE') {
       var userinfo = getUserInfo()
-      console.log(userinfo)
+      console.log(userinfo[1])
 
       document.getElementById("messageBox").innerHTML = "Hello, " + res.login + "! You are logged in! :)";
       return;
