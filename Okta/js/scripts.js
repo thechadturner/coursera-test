@@ -29,7 +29,7 @@ function getUserInfo() {
 	    xhrFields: {
 	        withCredentials: true
 	    }
-	});
+	}).responseJSON;
 };
 
 if (oktaSignIn.token.hasTokensInUrl()) {
