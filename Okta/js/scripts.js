@@ -52,7 +52,7 @@ function getUserInfo() {
 	    }
 	});
 
-	return output;
+	return output.responseText;
 }
 
 if (oktaSignIn.token.hasTokensInUrl()) {
