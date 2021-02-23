@@ -95,7 +95,7 @@ function getUserInfo() {
 
 function getGroupInfo(userID) {
     return $.ajax({
-	    url: "https://dev-49934482.okta.com/api/v1/users/$"+userID+"/groups",
+	    url: "https://dev-49934482.okta.com/api/v1/users/"+userID+"/groups",
 	    type: 'GET',
 	    dataType: 'json',
 	    contentType: 'application/json',
