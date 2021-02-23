@@ -8,14 +8,16 @@ var oktaSignIn = new OktaSignIn({
   }
 });
 
+var userID = undefined;
 var userFirstName = undefined;
 var userLastName = undefined;
 var userLogin = undefined;
+var userEmail = undefined;
 var lastlogin = undefined;
 var status = undefined;
 
 function findValues(obj) {
-	// console.log(obj)
+	console.log(obj)
 
 	for(var key in obj){
 		if (typeof key === 'string' || key instanceof String) {
