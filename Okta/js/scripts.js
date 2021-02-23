@@ -75,6 +75,6 @@ function getUserInfo() {
 	});
 }
 
-funtion info() {
+function info() {
 	console.log(getUserInfo())
 }
