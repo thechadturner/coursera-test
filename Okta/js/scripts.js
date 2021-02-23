@@ -80,9 +80,11 @@ function parseUserInfo(obj) {
 }
 
 function parseGroupInfo(obj) {
+	let groups = []
+
 	for (var r in obj) {
 		var row = obj[r]
-		
+
 		for(var key in row) {
 			if (typeof key === 'string' || key instanceof String) {
 				var key_str = key.toString().trim()
@@ -97,14 +99,9 @@ function parseGroupInfo(obj) {
 							if (k_str === 'name') {
 								var v_str = v.toString().trim()
 
-								userFirstName = v_str
-								console.log(k_str,v_str);
-							}
-							else if (k_str === 'description') {
-								var v_str = v.toString().trim()
-
-								userLastName = v_str
-								console.log(k_str,v_str);
+								if (v_str != 'Everyone') {
+									groups.push(v_str);
+								}
 							}
 						}
 					}
@@ -112,6 +109,8 @@ function parseGroupInfo(obj) {
 			}
 		}
 	}
+
+	return groups;
 }
 
 function getUserInfo() {
@@ -138,7 +137,8 @@ function getGroupInfo(userID) {
 	        withCredentials: true
 	    },
 	    success: function (res) {
-	    	parseGroupInfo(res)
+	    	var groups = parseGroupInfo(res)
+	    	console.log(groups)
 	    }
 	});
 }
