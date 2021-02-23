@@ -65,6 +65,7 @@ function getUserInfo() {
 	    },
 	    success: function (data) {
 	        userInfo = JSON.stringify(data);
+	        console.log(JSON.stringify(data))
 	    },
 	    error: function(err){
 	        userInfo = undefined;
