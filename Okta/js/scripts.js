@@ -62,15 +62,15 @@ function getUserInfo() {
 	        withCredentials: true
 	    },
 	    success: function (data) {
-	        return data;
+	        return JSON.stringify(data);
 	    },
 	    error: function(err){
-	        return {};
+	        return undefined;
 	    }
 	});
 }
 
-var userInfo = {}
+var userInfo = undefined
 userInfo = getUserInfo();
 console.log(userInfo)
 
