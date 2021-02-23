@@ -83,7 +83,7 @@ if (oktaSignIn.token.hasTokensInUrl()) {
       oktaSignIn.tokenManager.add('idToken', idToken);
 
       window.location.hash='';
-      document.getElementById("messageBox").innerHTML = "You have successfully logged in under the user name: " + idToken.claims.email + "! :)";
+      document.getElementById("messageBox").innerHTML = "You have successfully logged in under the user name: " + userFirstName + "! :)";
     },
     function error(err) {
       console.error(err);
@@ -101,7 +101,7 @@ else
       	findValues(userInfo,'profile')
 	  });
 
-      document.getElementById("messageBox").innerHTML = "Hello, " + res.login + "! You are logged in! :)";
+      document.getElementById("messageBox").innerHTML = "Howdy " + userFirstName + "! You are logged in! :)";
       return;
     }
 
