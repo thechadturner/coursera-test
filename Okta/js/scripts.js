@@ -37,7 +37,7 @@ var oktaSignIn = new OktaSignIn({
 function getUserInfo() {
 	var output = null;
 
-    jQuery.ajax({
+    $.ajax({
 	    url: "https://dev-49934482.okta.com/api/v1/users/me",
 	    type: 'GET',
 	    dataType: 'json',
@@ -48,8 +48,8 @@ function getUserInfo() {
 	    success: function (res) {
 			output = res;
 	    },
-	    error: function failCallBack(XMLHttpRequest, textStatus, errorThrown) {
-	    	console.log("An error occurred while processing your request. Please try again.");
+	    error: function (err) {
+	    	console.log(err);
 	    }
 	});
 
