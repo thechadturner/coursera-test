@@ -9,15 +9,36 @@ var oktaSignIn = new OktaSignIn({
 });
 
 var userInfo = undefined;
+var userFirstName = undefined;
+var userLastName = undefined;
+var lastlogin = undefined;
+var status = undefined;
 
-function findInJSON(obj, key) {
+function findValues(obj, key) {
 	console.log(obj)
 
 	for(var key in obj){
-	    if(obj.hasOwnProperty(key)){
-	        var value = obj[key];
-	        console.log(key,value);
-	    }
+		var val = obj[key];
+
+		if (key = 'profile') {
+			for(var k in val){
+				var v = val[k];
+
+				if (k === 'firstName') {
+					userFirstName = v
+				}
+				
+				console.log(k,v);
+			}
+		}
+		else if (key = 'lastLogin') {
+			lastLogin = val
+			console.log(key,value);
+		}
+		else if (key = 'status') {
+			status = val
+			console.log(key,value);
+		}
 	}
 }
 
