@@ -68,9 +68,6 @@ function getUserInfo() {
 	        console.log(JSON.stringify(err));
 	    }
 	});
-
-	console.log(data)
-	return data
 }
 
 getUserInfo()
