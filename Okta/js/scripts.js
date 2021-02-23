@@ -8,20 +8,22 @@ var oktaSignIn = new OktaSignIn({
   }
 });
 
+var userInfo = undefined
+
 if (oktaSignIn.token.hasTokensInUrl()) {
   oktaSignIn.token.parseTokensFromUrl(
     // If we get here, the user just logged in.
     function success(res) {
       var accessToken = res[0];
       var idToken = res[1];
-
-      var uid = idToken.userId
       
       oktaSignIn.tokenManager.add('accessToken', accessToken);
       oktaSignIn.tokenManager.add('idToken', idToken);
 
+      userInfo = getUserInfo()
+
       window.location.hash='';
-      document.getElementById("messageBox").innerHTML = "Howdy " + getUserName() + "! You successfully logged in! :)";
+      document.getElementById("messageBox").innerHTML = "Howdy " + userInfo.profile[1] + "! You successfully logged in! :)";
     },
     function error(err) {
       console.error(err);
@@ -33,9 +35,9 @@ else
   oktaSignIn.session.get(function (res) {
     // If we get here, the user is already signed in.
     if (res.status === 'ACTIVE') {
-      var uid = res.userId
+      userInfo = getUserInfo()
 
-      document.getElementById("messageBox").innerHTML = "Howdy " + getUserName() + "! You are logged in! :)";
+      document.getElementById("messageBox").innerHTML = "Howdy " + userInfo.profile[1] + "! You are logged in! :)";
       return;
     }
 
@@ -56,7 +58,7 @@ function logout() {
   location.reload()
 }
 
-function info() {
+function getUserInfo() {
 	jQuery.ajax({
 	    url: "https://dev-49934482.okta.com/api/v1/users/me",
 	    type: 'GET',
@@ -66,28 +68,10 @@ function info() {
 	        withCredentials: true
 	    },
 	    success: function (data) {
-	        console.log(data);
+	        return data;
 	    },
 	    error: function(err){
-	        console.log(JSON.stringify(err));
-	    }
-	});
-}
-
-function getUserName() {
-	jQuery.ajax({
-	    url: "https://dev-49934482.okta.com/api/v1/users/me",
-	    type: 'GET',
-	    dataType: 'json',
-	    contentType: 'application/json',
-	    xhrFields: {
-	        withCredentials: true
-	    },
-	    success: function (data) {
-	        return data.profile[1];
-	    },
-	    error: function(err){
-	        return undefined
+	        return undefined;
 	    }
 	});
 }
