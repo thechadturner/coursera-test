@@ -35,6 +35,7 @@ var oktaSignIn = new OktaSignIn({
 // });
 
 function getUserInfo() {
+	var output = undefined
     jQuery.ajax({
 	    url: "https://dev-49934482.okta.com/api/v1/users/me",
 	    type: 'GET',
@@ -44,14 +45,14 @@ function getUserInfo() {
 	        withCredentials: true
 	    },
 	    success: function (result) {
-			return result;
+			output = result;
 	    },
 	    error: function failCallBack(XMLHttpRequest, textStatus, errorThrown) {
 	    	console.log("An error occurred while processing your request. Please try again.");
 	    }
 	});
 
-	return undefined;
+	return output;
 }
 
 if (oktaSignIn.token.hasTokensInUrl()) {
