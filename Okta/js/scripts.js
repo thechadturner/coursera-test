@@ -45,8 +45,7 @@ else
     if (res.status === 'ACTIVE') {
       var userinfo = getUserInfo()
 
-      userFirstName = userinfo.profile[1]
-      console.log(userFirstName)
+      console.log(userinfo.profile)
 
       document.getElementById("messageBox").innerHTML = "Hello, " + res.login + "! You are logged in! :)";
       return;
