@@ -8,8 +8,20 @@ var oktaSignIn = new OktaSignIn({
   }
 });
 
-function getUserInfo() {
-	return Promise.resolve(jQuery.ajax({
+// function getUserInfo() {
+// 	return Promise.resolve(jQuery.ajax({
+// 	    url: "https://dev-49934482.okta.com/api/v1/users/me",
+// 	    type: 'GET',
+// 	    dataType: 'json',
+// 	    contentType: 'application/json',
+// 	    xhrFields: {
+// 	        withCredentials: true
+// 	    }
+// 	}));
+// };
+
+async function getUserInfo() {
+    info = await jQuery.ajax({
 	    url: "https://dev-49934482.okta.com/api/v1/users/me",
 	    type: 'GET',
 	    dataType: 'json',
@@ -17,8 +29,17 @@ function getUserInfo() {
 	    xhrFields: {
 	        withCredentials: true
 	    }
-	}));
-};
+	})
+if (info) {
+    return info;
+} else {
+    return null;
+  }
+}
+
+getUserInfo().then((res) => {
+    exports.info = res;
+});
 
 if (oktaSignIn.token.hasTokensInUrl()) {
   oktaSignIn.token.parseTokensFromUrl(
