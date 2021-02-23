@@ -62,15 +62,18 @@ function getUserInfo() {
 	        withCredentials: true
 	    },
 	    success: function (data) {
+	    	console.log(data)
 	        return data;
 	    },
 	    error: function(err){
+	    	console.log(err)
 	        return {};
 	    }
 	});
 }
 
-var userInfo = getUserInfo();
+var userInfo = {}
+userInfo = getUserInfo();
 console.log(userInfo)
 
 function info() {
