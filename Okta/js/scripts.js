@@ -62,11 +62,9 @@ function getUserInfo() {
 	        withCredentials: true
 	    },
 	    success: function (data) {
-	    	console.log(data)
 	        return data;
 	    },
 	    error: function(err){
-	    	console.log(err)
 	        return {};
 	    }
 	});
