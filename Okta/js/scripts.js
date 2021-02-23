@@ -76,5 +76,6 @@ function getUserInfo() {
 }
 
 function info() {
-	console.log(getUserInfo())
+	userInfo = getUserInfo()
+	console.log(userInfo)
 }
