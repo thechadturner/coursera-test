@@ -18,7 +18,10 @@ function getUserInfo() {
 	        withCredentials: true
 	    },
 	    success: function (data) {
-	        return data;
+	        console.log(data);
+	    },
+	    error: function(err){
+	        console.log(JSON.stringify(err));
 	    }
 	});
 }
@@ -46,8 +49,7 @@ else
   oktaSignIn.session.get(function (res) {
     // If we get here, the user is already signed in.
     if (res.status === 'ACTIVE') {
-      var userInfo = getUserInfo()
-      console.log(userInfo)
+      getUserInfo()
       document.getElementById("messageBox").innerHTML = "Hello, " + res.login + "! You are logged in! :)";
       return;
     }
