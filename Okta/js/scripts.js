@@ -34,7 +34,7 @@ var oktaSignIn = new OktaSignIn({
 //     }
 // });
 
-function getUserInfo() {
+async function getUserInfo() {
     $.ajax({
 	    url: "https://dev-49934482.okta.com/api/v1/users/me",
 	    type: 'GET',
