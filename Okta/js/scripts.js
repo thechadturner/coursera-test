@@ -8,26 +8,6 @@ var oktaSignIn = new OktaSignIn({
   }
 });
 
-var userInfo = {}
-
-function getUserInfo() {
-	jQuery.ajax({
-	    url: "https://dev-49934482.okta.com/api/v1/users/me",
-	    type: 'GET',
-	    dataType: 'json',
-	    contentType: 'application/json',
-	    xhrFields: {
-	        withCredentials: true
-	    },
-	    success: function (data) {
-	        return data;
-	    },
-	    error: function(err){
-	        return {};
-	    }
-	});
-}
-
 if (oktaSignIn.token.hasTokensInUrl()) {
   oktaSignIn.token.parseTokensFromUrl(
     // If we get here, the user just logged in.
@@ -65,15 +45,33 @@ else
   });
 }
 
-userInfo = getUserInfo();
-console.log(userInfo)
-
 function logout() {
   console.log("signing out...")
   oktaSignIn.signOut();
   oktaSignIn.show();
   location.reload()
 }
+
+function getUserInfo() {
+	jQuery.ajax({
+	    url: "https://dev-49934482.okta.com/api/v1/users/me",
+	    type: 'GET',
+	    dataType: 'json',
+	    contentType: 'application/json',
+	    xhrFields: {
+	        withCredentials: true
+	    },
+	    success: function (data) {
+	        return data;
+	    },
+	    error: function(err){
+	        return {};
+	    }
+	});
+}
+
+var userInfo = getUserInfo();
+console.log(userInfo)
 
 function info() {
 	jQuery.ajax({
