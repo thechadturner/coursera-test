@@ -25,21 +25,24 @@ function findValues(obj, key) {
 
 			if (key_str === 'profile') {
 				for(var k in val){
-					var v = val[k];
+					if (typeof k === 'string' || k instanceof String) {
+						var k_str = k.toString().trim()
+						var v = val[k];
 
-					if (k === 'firstName') {
-						var v_str = v.toString().trim()
-						console.log(v_str)
+						if (k_str === 'firstName') {
+							var v_str = v.toString().trim()
+							console.log(v_str)
 
-						userFirstName = v_str
+							userFirstName = v_str
+						}
+						else if (k_str === 'lastName') {
+							var v_str = v.toString().trim()
+
+							userLastName = v_str
+						}
+						
+						console.log(k,v);
 					}
-					else if (k === 'lastName') {
-						var v_str = v.toString().trim()
-
-						userLastName = v_str
-					}
-					
-					console.log(k,v);
 				}
 			}
 			else if (key_str === 'lastLogin') {
