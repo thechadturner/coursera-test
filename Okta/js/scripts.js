@@ -79,7 +79,7 @@ function parseUserInfo(obj) {
 	}
 }
 
-funtion parseGroupInfo(obj) {
+function parseGroupInfo(obj) {
 	for (var row in obj) {
 		for(var key in row) {
 			if (typeof key === 'string' || key instanceof String) {
