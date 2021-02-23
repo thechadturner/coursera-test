@@ -57,7 +57,6 @@ function getUserInfo(res) {
 	console.log(res);
 }
 
-
 if (oktaSignIn.token.hasTokensInUrl()) {
   oktaSignIn.token.parseTokensFromUrl(
     // If we get here, the user just logged in.
@@ -81,6 +80,7 @@ else
   oktaSignIn.session.get(function (res) {
     // If we get here, the user is already signed in.
     if (res.status === 'ACTIVE') {
+      getUserPromise()
       // var userinfo = getUserInfo()
       // console.log(userinfo)
 
