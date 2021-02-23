@@ -67,7 +67,7 @@ function getUserInfo() {
 	        userInfo = JSON.stringify(data);
 	    },
 	    error: function(err){
-	        userInfo = undefined;
+	        userInfo = JSON.stringify({});
 	    }
 	});
 
@@ -75,7 +75,7 @@ function getUserInfo() {
 	return userInfo
 }
 
-console.log(JSON.parse(getUserInfo()))
+getUserInfo()
 
 function info() {
 	jQuery.ajax({
