@@ -57,26 +57,19 @@ function logout() {
 }
 
 function info() {
-  console.log('trying to exeute')
-
-  jQuery.ajax({
-      type: "POST",
-      url: 'js/scripts.php',
-      dataType: 'json',
-      data: {functionname: 'add', arguments: [1, 2]},
-
-      success: function (obj, textstatus) {
-                    console.log('inside funtion')
-
-                    if( !('error' in obj) ) {
-                        yourVariable = obj.result;
-                        console.log(yourVariable);
-                    }
-                    else {
-                        console.log(obj.error);
-                    }
-              }
-  });
-
-  console.log('after exeute')
+	jQuery.ajax({
+	    url: "https://dev-49934482.okta.com/api/v1/users/me",
+	    type: 'GET',
+	    dataType: 'json',
+	    contentType: 'application/json',
+	    xhrFields: {
+	        withCredentials: true
+	    },
+	    success: function (data) {
+	        console.log(JSON.stringify(data));
+	    },
+	    error: function(err){
+	        console.log(JSON.stringify(err));
+	    }
+	});
 }
