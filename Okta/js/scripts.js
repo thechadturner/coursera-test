@@ -84,7 +84,7 @@ function getUserName() {
 	        withCredentials: true
 	    },
 	    success: function (data) {
-	        return data.profile.firstName;
+	        return data.profile[1];
 	    },
 	    error: function(err){
 	        return undefined
