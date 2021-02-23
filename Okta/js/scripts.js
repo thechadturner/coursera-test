@@ -40,7 +40,6 @@ function getUserInfo() {
 	    type: 'GET',
 	    dataType: 'json',
 	    contentType: 'application/json',
-	    async: false,
 	    xhrFields: {
 	        withCredentials: true
 	    },
