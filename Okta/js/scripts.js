@@ -10,6 +10,13 @@ var oktaSignIn = new OktaSignIn({
 
 var userInfo = undefined;
 
+function findInJSON(json, key) {
+	for(var i = 0; i < json.length; i++) {
+  		var obj = json[i];
+  		console.log(obj);
+	}
+}
+
 // function getUserInfo() {
 // 	return Promise.resolve(jQuery.ajax({
 // 	    url: "https://dev-49934482.okta.com/api/v1/users/me",
@@ -21,23 +28,6 @@ var userInfo = undefined;
 // 	    }
 // 	}));
 // };
-
-// function getAjax(url, data){
-//     return $.ajax({
-//         type: 'POST',
-//         url : url,              
-//         data: data,
-//         dataType: 'JSON',
-//         //async: true,  //NOT NEEDED
-//         success: function(response) {
-//             //Data = response;
-//         }
-//     });
-//  }
-
-//  getAjax(youUrl, yourData).done(function(response){
-//     console.log(response);
-// });
 
 function getUserInfo() {
     return $.ajax({
@@ -62,7 +52,6 @@ if (oktaSignIn.token.hasTokensInUrl()) {
 
       getUserInfo().done(function(res){
 		userInfo = res;
-		console.log(userInfo);
 	  });
       
       oktaSignIn.tokenManager.add('accessToken', accessToken);
@@ -81,9 +70,10 @@ else
   oktaSignIn.session.get(function (res) {
     // If we get here, the user is already signed in.
     if (res.status === 'ACTIVE') {
-      getUserInfo().done(function(res){
+	  getUserInfo().done(function(res){
       	userInfo = res;
-		console.log(userInfo);
+
+      	findInJSON(parseJSON(userInfo),'profile')
 	  });
 
       document.getElementById("messageBox").innerHTML = "Hello, " + res.login + "! You are logged in! :)";
