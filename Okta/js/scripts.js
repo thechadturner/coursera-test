@@ -11,6 +11,7 @@ var oktaSignIn = new OktaSignIn({
 var userInfo = undefined;
 var userFirstName = undefined;
 var userLastName = undefined;
+var userLogin = undefined;
 var lastlogin = undefined;
 var status = undefined;
 
@@ -18,26 +19,40 @@ function findValues(obj, key) {
 	console.log(obj)
 
 	for(var key in obj){
-		var val = obj[key];
+		if (typeof key === 'string' || key instanceof String) {
+			var key_str = key.toString().trim()
+			var val = obj[key];
 
-		if (key.trim() === 'profile') {
-			for(var k in val){
-				var v = val[k];
+			if (key_str === 'profile') {
+				for(var k in val){
+					var v = val[k];
 
-				if (k.trim() === 'firstName') {
-					userFirstName = v.trim()
+					if (k === 'firstName') {
+						var v_str = v.toString().trim()
+
+						userFirstName = v_str
+					}
+					else if (k === 'lastName') {
+						var v_str = v.toString().trim()
+
+						userLastName = v_str
+					}
+					
+					console.log(k,v);
 				}
-				
-				console.log(k,v);
 			}
-		}
-		else if (key.trim() === 'lastLogin') {
-			lastLogin = val.trim()
-			console.log(key,val);
-		}
-		else if (key.trim() === 'status') {
-			status = val.trim()
-			console.log(key,val);
+			else if (key_str === 'lastLogin') {
+				var val_str = val.toString().trim()
+				lastLogin = val_str
+
+				console.log(key_str,val_str);
+			}
+			else if (key_str === 'status') {
+				var val_str = val.toString().trim()
+				status = val_str
+
+				console.log(key_str,val_str);
+			}
 		}
 	}
 }
