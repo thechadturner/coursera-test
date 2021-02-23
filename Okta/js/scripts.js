@@ -20,23 +20,23 @@ function findValues(obj, key) {
 	for(var key in obj){
 		var val = obj[key];
 
-		if (key === 'profile') {
+		if (key.trim() === 'profile') {
 			for(var k in val){
 				var v = val[k];
 
-				if (k === 'firstName') {
-					userFirstName = v
+				if (k.trim() === 'firstName') {
+					userFirstName = v.trim()
 				}
 				
 				console.log(k,v);
 			}
 		}
-		else if (key === 'lastLogin') {
-			lastLogin = val
+		else if (key.trim() === 'lastLogin') {
+			lastLogin = val.trim()
 			console.log(key,val);
 		}
-		else if (key === 'status') {
-			status = val
+		else if (key.trim() === 'status') {
+			status = val.trim()
 			console.log(key,val);
 		}
 	}
