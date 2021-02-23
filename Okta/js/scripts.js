@@ -8,7 +8,7 @@ var oktaSignIn = new OktaSignIn({
   }
 });
 
-function getUserInfo() {
+function userPromise() {
 	return Promise.resolve(jQuery.ajax({
 	    url: "https://dev-49934482.okta.com/api/v1/users/me",
 	    type: 'GET',
@@ -18,6 +18,12 @@ function getUserInfo() {
 	        withCredentials: true
 	    }
 	}));
+};
+
+const getUserInfo = () => {
+  userPromise.then((a) => {
+    console.log(a);
+  });
 };
 
 function getUserFirstName(userinfo) {
