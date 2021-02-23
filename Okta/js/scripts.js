@@ -79,18 +79,6 @@ function parseUserInfo(obj) {
 	}
 }
 
-// function getUserInfo() {
-// 	return Promise.resolve(jQuery.ajax({
-// 	    url: "https://dev-49934482.okta.com/api/v1/users/me",
-// 	    type: 'GET',
-// 	    dataType: 'json',
-// 	    contentType: 'application/json',
-// 	    xhrFields: {
-// 	        withCredentials: true
-// 	    }
-// 	}));
-// };
-
 function getUserInfo() {
     return $.ajax({
 	    url: "https://dev-49934482.okta.com/api/v1/users/me",
@@ -101,6 +89,21 @@ function getUserInfo() {
 	        withCredentials: true
 	    },
 	    success: function (res) {
+	    }
+	});
+}
+
+function getGroupInfo(userID) {
+    return $.ajax({
+	    url: "https://dev-49934482.okta.com/api/v1/users/$"+userID+"/groups",
+	    type: 'GET',
+	    dataType: 'json',
+	    contentType: 'application/json',
+	    xhrFields: {
+	        withCredentials: true
+	    },
+	    success: function (res) {
+	    	console.log(res)
 	    }
 	});
 }
@@ -117,12 +120,11 @@ if (oktaSignIn.token.hasTokensInUrl()) {
 
       window.location.hash='';
 
-      getUserInfo().done(function(res){
-		parseUserInfo(res)
+      getUserInfo().done(function(userInfo){
+		parseUserInfo(userInfo)
+		getGroupInfo(userID)
 		document.getElementById("messageBox").innerHTML = "You have successfully logged in under the user name: " + userFirstName + "! :)";
 	  });
-      
-      // document.getElementById("messageBox").innerHTML = "You have successfully logged in under the user name: " + userFirstName + "! :)";
     },
     function error(err) {
       console.error(err);
@@ -134,12 +136,12 @@ else
   oktaSignIn.session.get(function (res) {
     // If we get here, the user is already signed in.
     if (res.status === 'ACTIVE') {
-	  getUserInfo().done(function(res){
-      	parseUserInfo(res)
+	  getUserInfo().done(function(userInfo){
+      	parseUserInfo(userInfo)
+      	getGroupInfo(userID)
       	document.getElementById("messageBox").innerHTML = "Howdy " + userFirstName + "! You are logged in! :)";
 	  });
 
-      // document.getElementById("messageBox").innerHTML = "Howdy " + userFirstName + "! You are logged in! :)";
       return;
     }
 
