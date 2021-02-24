@@ -116,6 +116,8 @@ function getGroupInfo(userID) {
 	});
 }
 
+var redirectUrl = 'https://thechadturner.github.io/coursera-test/Okta/Index/login.html';
+
 var oktaSignIn = new OktaSignIn({
     baseUrl: "https://dev-49934482.okta.com",
     clientId: "0oa7yhklz0BvikmFq5d6",
@@ -126,66 +128,26 @@ var oktaSignIn = new OktaSignIn({
     }
   });
 
-if (oktaSignIn.token.hasTokensInUrl()) {
-  oktaSignIn.token.parseTokensFromUrl(
-    // If we get here, the user just logged in.
-    function success(res) {
-      var accessToken = res[0];
-      var idToken = res[1];
-
-      oktaSignIn.tokenManager.add('accessToken', accessToken);
-      oktaSignIn.tokenManager.add('idToken', idToken);
-
-      window.location.hash='';
-
-      getUserInfo().done(function(output){
-		let userInfo = parseUserInfo(output)
-		getGroupInfo(userInfo.id)
-
-		if (window.location.href.indexOf('user.html') > 0) {
-      		document.getElementById("back").innerHTML = "<a href='#' onclick='logout()'><h3>Logout</h3></a>";
-      		document.getElementById("top").innerHTML = "Welcome " + userInfo.firstName + "! Nice to see you back! :)";
-      	}
-	  });
-    },
-    function error(err) {
-      console.error(err);
-    }
-  );
-} 
-else 
-{
-  oktaSignIn.session.get(function (res) {
-    // If we get here, the user is already signed in.
-    if (res.status === 'ACTIVE') {
+oktaSignIn.session.get(function (res) {
+	// If we get here, the user is already signed in.
+	if (res.status === 'ACTIVE') {
 	  getUserInfo().done(function(output){
-      	let userInfo = parseUserInfo(output)
-      	getGroupInfo(userInfo.id)
+	  	let userInfo = parseUserInfo(output)
+	  	getGroupInfo(userInfo.id)
 
-      	if (window.location.href.indexOf('user.html') > 0) {
-      		document.getElementById("back").innerHTML = "<a href='#' onclick='logout()'><h3>Logout</h3></a>";
-      		document.getElementById("top").innerHTML = "Welcome " + userInfo.firstName + "! Nice to see you back! :)";
-      	}
+	  	if (window.location.href.indexOf('user.html') > 0) {
+	  		document.getElementById("back").innerHTML = "<a href='#' onclick='logout()'><h3>Logout</h3></a>";
+	  		document.getElementById("top").innerHTML = "Welcome " + userInfo.firstName + "! Nice to see you back! :)";
+	  	}
 	  });
 
-      return;
-    } 
-    else 
-    {
-      	if (window.location.href.indexOf('user.html') > 0) {
-      		document.getElementById("back").innerHTML = "<a href='Index/login.html'><h3>Login</h3></a>";
-      	}
-    }
-
-    oktaSignIn.renderEl(
-      { el: '#okta-login-container' },
-      function success(res) {},
-      function error(err) {
-        console.error(err);
-      }
-    );
-  });
-}
+	  return;
+	} 
+	else 
+	{
+		window.location = redirectUrl; 
+	}
+});
 
 function logout() {
   console.log("signing out...")
