@@ -152,7 +152,6 @@ oktaSignIn.session.get(function (res) {
 function logout() {
   console.log("signing out...")
   oktaSignIn.signOut();
-  oktaSignIn.show();
-  location.reload()
+  window.location = 'https://thechadturner.github.io/coursera-test/Okta/index.html';
 }
 
