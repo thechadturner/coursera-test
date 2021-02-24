@@ -162,11 +162,18 @@ else
       	getGroupInfo(userInfo.id)
 
       	if (window.location.href.indexOf('login.html') > 0) {
+      		document.getElementById("back").innerHTML = "<a href=""javascript:logout()""><h3>Logout</h3></a>";
       		document.getElementById("top").innerHTML = "Welcome " + userInfo.firstName + "! Nice to see you back! :)";
       	}
 	  });
 
       return;
+    } 
+    else 
+    {
+      	if (window.location.href.indexOf('login.html') > 0) {
+      		document.getElementById("back").innerHTML = "<a href="Index/login.html"><h3>Login</h3></a>";
+      	}
     }
 
     oktaSignIn.renderEl(
