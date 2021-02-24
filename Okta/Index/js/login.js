@@ -14,7 +14,7 @@ if (oktaSignIn.token.hasTokensInUrl()) {
   oktaSignIn.token.parseTokensFromUrl(
     // If we get here, the user just logged in.
     function success(res) {
-    	if (res.status === 'SUCCESS') {
+    	if (res.status === 'SUCCESS' || res.status === 'ACTIVE') {
     		console.log("redirecting...") 
     		window.location = redirectUrl; 
     	}
@@ -28,7 +28,7 @@ else
 {
   oktaSignIn.session.get(function (res) {
     // If we get here, the user is already signed in.
-    if (res.status === 'ACTIVE') {
+    if (res.status === 'SUCCESS' || res.status === 'ACTIVE') {
     	console.log("redirecting...") 
 		window.location = redirectUrl; 
     } 
@@ -50,7 +50,6 @@ else
 function logout() {
   console.log("signing out...")
   oktaSignIn.signOut();
-  oktaSignIn.show();
-  location.reload()
+  window.location = 'https://thechadturner.github.io/coursera-test/Okta/index.html';
 }
 
