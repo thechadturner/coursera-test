@@ -6,10 +6,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=0.4">
         <meta name="robots" content="[noindex, nofollow]" />
 
-        <title>Team Share</title>
+        <title>Team Share</title> 
 
-        <link rel="stylesheet" href="Index/css/bootstrap.min.css">
-        <link rel="stylesheet" href="Index/css/main.css">    
+        <!-- widget stuff here -->
+        <script src="https://ok1static.oktacdn.com/assets/js/sdk/okta-signin-widget/2.16.0/js/okta-sign-in.min.js" type="text/javascript"></script>
+        <link href="https://ok1static.oktacdn.com/assets/js/sdk/okta-signin-widget/2.16.0/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
+        <link href="https://ok1static.oktacdn.com/assets/js/sdk/okta-signin-widget/2.16.0/css/okta-theme.css" type="text/css" rel="stylesheet"/>
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/main.css"> 
     </head>
 
     <body>
@@ -22,15 +27,14 @@
                     </div>
                 </div>
                 <div id="back">
-                    <a href="Index/newLogin.html"><h3>Login</h3></a>
+                    <a href="../index.html"><h3>Back</h3></a>
                 </div>
             </div>
             </nav>
         </header>
-
-        <div id="main-content" class="container">
-
-        </div>
+         
+        <!-- where the sign-in form will be displayed -->
+        <div id="okta-login-container"></div>
 
         <footer class="panel-footer">
             <div class="container">
@@ -40,7 +44,8 @@
         </footer>
     </body>
 
-	<script src="Index/js/thirdparty/ajax-utils.js"></script>
-    <script src="Index/js/thirdparty/jquery-2.1.4.min.js"></script>
-    <script src="Index/js/thirdparty/bootstrap.min.js"></script>
+    <script src="js/thirdparty/jquery-2.1.4.min.js"></script>
+	<script src="js/thirdparty/ajax-utils.js"></script>
+    <script src="js/thirdparty/bootstrap.min.js"></script>
+    <script src="js/login.js"></script>
 </html>

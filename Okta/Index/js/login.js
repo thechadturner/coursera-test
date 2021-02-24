@@ -1,4 +1,5 @@
-var oktaSignIn = new OktaSignIn({
+var oktaConfig = {
+  logo: "../images/icon.png",
   baseUrl: "https://dev-49934482.okta.com",
   clientId: "0oa7yhklz0BvikmFq5d6",
   authParams: {
@@ -6,7 +7,9 @@ var oktaSignIn = new OktaSignIn({
     responseType: ['token', 'id_token'],
     display: 'page'
   }
-});
+};
+
+var oktaSignIn = new OktaSignIn(oktaConfig);
 
 function parseUserInfo(obj) {
 	let userInfo = {}
@@ -141,7 +144,7 @@ if (oktaSignIn.token.hasTokensInUrl()) {
       getUserInfo().done(function(output){
 		let userInfo = parseUserInfo(output)
 		getGroupInfo(userInfo.id)
-		document.getElementById("messageBox").innerHTML = "You have successfully logged in under the user name: " + userInfo.firstName + "! :)";
+		//document.getElementById("messageBox").innerHTML = "You have successfully logged in under the user name: " + userInfo.firstName + "! :)";
 	  });
     },
     function error(err) {
@@ -157,7 +160,7 @@ else
 	  getUserInfo().done(function(output){
       	let userInfo = parseUserInfo(output)
       	getGroupInfo(userInfo.id)
-      	document.getElementById("messageBox").innerHTML = "Howdy " + userInfo.firstName + "! You are logged in! :)";
+      	//document.getElementById("messageBox").innerHTML = "Howdy " + userInfo.firstName + "! You are logged in! :)";
 	  });
 
       return;
@@ -178,22 +181,4 @@ function logout() {
   oktaSignIn.signOut();
   oktaSignIn.show();
   location.reload()
-}
-
-function info() {
-	jQuery.ajax({
-	    url: "https://dev-49934482.okta.com/api/v1/users/me",
-	    type: 'GET',
-	    dataType: 'json',
-	    contentType: 'application/json',
-	    xhrFields: {
-	        withCredentials: true
-	    },
-	    success: function (data) {
-	        console.log(data);
-	    },
-	    error: function(err){
-	        console.log(JSON.stringify(err));
-	    }
-	});
 }
