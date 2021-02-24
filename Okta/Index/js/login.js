@@ -16,6 +16,7 @@ if (oktaSignIn.token.hasTokensInUrl()) {
     // If we get here, the user just logged in.
     function success(res) {
     	console.log("recent sign in..." + res) 
+    	console.log(res)
 		redirect(res)
     },
     function error(err) {
