@@ -1,14 +1,3 @@
-const oktaSignIn = new OktaSignIn({
-  logo: "../images/logo.png",
-  baseUrl: "https://dev-49934482.okta.com",
-  clientId: "0oa7yhklz0BvikmFq5d6",
-  authParams: {
-    issuer: "default",
-    responseType: ['token', 'id_token'],
-    display: 'page'
-  };
-});
-
 function parseUserInfo(obj) {
 	let userInfo = {}
 	//console.log(obj)
@@ -126,6 +115,16 @@ function getGroupInfo(userID) {
 	    }
 	});
 }
+
+var oktaSignIn = new OktaSignIn({
+    baseUrl: "https://dev-49934482.okta.com",
+    clientId: "0oa7yhklz0BvikmFq5d6",
+    authParams: {
+      issuer: "default",
+      responseType: ['token', 'id_token'],
+      display: 'page'
+    }
+  });
 
 if (oktaSignIn.token.hasTokensInUrl()) {
   oktaSignIn.token.parseTokensFromUrl(
