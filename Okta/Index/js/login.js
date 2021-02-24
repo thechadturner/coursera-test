@@ -12,9 +12,10 @@ var oktaSignIn = new OktaSignIn({
 
 if (oktaSignIn.token.hasTokensInUrl()) {
   oktaSignIn.token.parseTokensFromUrl(
+
     // If we get here, the user just logged in.
     function success(res) {
-    	console.log("recent sign in..." + res.status) 
+    	console.log("recent sign in..." + res) 
 		redirect(res)
     },
     function error(err) {
