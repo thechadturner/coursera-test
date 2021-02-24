@@ -6,7 +6,7 @@ const oktaSignIn = new OktaSignIn({
     issuer: "default",
     responseType: ['token', 'id_token'],
     display: 'page'
-  }
+  };
 });
 
 function parseUserInfo(obj) {
