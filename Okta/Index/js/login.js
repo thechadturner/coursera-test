@@ -14,6 +14,8 @@ if (oktaSignIn.token.hasTokensInUrl()) {
   oktaSignIn.token.parseTokensFromUrl(
     // If we get here, the user just logged in.
     function success(res) {
+    	console.log(res)
+    	
     	if (res.status === 'SUCCESS') {
     		console.log("success! redirecting...")
 			window.location = redirectUrl;
