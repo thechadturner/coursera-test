@@ -20,6 +20,8 @@ if (oktaSignIn.token.hasTokensInUrl()) {
         oktaSignIn.tokenManager.add('accessToken', accessToken);
         oktaSignIn.tokenManager.add('idToken', idToken);
 
+        window.location.hash='';
+
 		console.log("success! redirecting...");
 		window.location = redirectUrl;
     },
@@ -37,18 +39,18 @@ else
   	if (res.status === 'ACTIVE') {
     	console.log("redirecting...");
 		window.location = redirectUrl;
+		return;
     }
-    else 
-    {
-    	oktaSignIn.renderEl(
-	      { el: '#okta-login-container' },
-	      function success(res) {
-	      },
-	      function error(err) {
-	        console.error(err);
-	      }
-	    );
-    }  
+
+	oktaSignIn.renderEl(
+      { el: '#okta-login-container' },
+      function success(res) {
+      },
+      function error(err) {
+        console.error(err);
+      }
+    );
+ 
   });
 }
 
