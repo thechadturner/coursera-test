@@ -119,7 +119,6 @@ function getGroupInfo(userID) {
 var oktaSignIn = new OktaSignIn({
     baseUrl: "https://dev-49934482.okta.com",
     clientId: "0oa7yhklz0BvikmFq5d6",
-    redirectUri: "https://thechadturner.github.io/coursera-test/Okta/Index/user.html",
     authParams: {
       issuer: "default",
       responseType: ['token', 'id_token'],
