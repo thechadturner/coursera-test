@@ -28,7 +28,7 @@ else
   	console.log("already signed in..." + res.status) 
 
 	// If we get here, the user is already signed in.
-  	if (redirect(res) === False) {
+  	if (redirect(res) === false) {
   		oktaSignIn.renderEl(
 	      { el: '#okta-login-container' },
 	      function success(res) {
