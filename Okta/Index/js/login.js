@@ -176,7 +176,7 @@ else
     else 
     {
       	if (window.location.href.indexOf('login.html') > 0) {
-      		document.getElementById("back").innerHTML = "<a href="Index/login.html"><h3>Login</h3></a>";
+      		document.getElementById("back").innerHTML = "<a href='Index/login.html'><h3>Login</h3></a>";
       	}
     }
 
