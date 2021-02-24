@@ -15,7 +15,10 @@ if (oktaSignIn.token.hasTokensInUrl()) {
     // If we get here, the user just logged in.
     function success(res) {
     	console.log(res)
-    	if (res.status === 'SUCCESS') { res.session.setCookieAndRedirect(redirectUrl); }
+    	if (res.status === 'SUCCESS') {
+    		console.log("redirecting...") 
+    		window.location = redirectUrl; 
+    	}
     },
     function error(err) {
       console.error(err);
@@ -26,16 +29,18 @@ else
 {
   oktaSignIn.session.get(function (res) {
   	console.log(res)
+
     // If we get here, the user is already signed in.
     if (res.status === 'ACTIVE') {
-		res.session.setCookieAndRedirect(redirectUrl);
+    	console.log("redirecting...") 
+		window.location = redirectUrl; 
     } 
 
     oktaSignIn.renderEl(
       { el: '#okta-login-container' },
       function success(res) {
-      	console.log(res)
-      	res.session.setCookieAndRedirect(redirectUrl)
+      	console.log("redirecting...") 
+      	window.location = redirectUrl; 
       },
       function error(err) {
         console.error(err);
