@@ -146,7 +146,7 @@ if (oktaSignIn.token.hasTokensInUrl()) {
 		getGroupInfo(userInfo.id)
 
 		if (window.location.href.indexOf('login.html') > 0) {
-      		document.getElementById("back").innerHTML = "<a href="javascript:logout()"><h3>Logout</h3></a>";
+      		document.getElementById("back").innerHTML = "<a href='#' onclick='logout()'><h3>Logout</h3></a>";
       		document.getElementById("top").innerHTML = "Welcome " + userInfo.firstName + "! Nice to see you back! :)";
       	}
 	  });
