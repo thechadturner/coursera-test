@@ -1,4 +1,4 @@
-var oktaSignIn = new OktaSignIn({
+const oktaSignIn = new OktaSignIn({
   logo: "../images/logo.png",
   baseUrl: "https://dev-49934482.okta.com",
   clientId: "0oa7yhklz0BvikmFq5d6",
