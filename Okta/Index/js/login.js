@@ -1,5 +1,15 @@
+// var oktaConfig = {
+//   logo: "../images/icon.png",
+//   baseUrl: "https://dev-49934482.okta.com",
+//   clientId: "0oa7yhklz0BvikmFq5d6",
+//   authParams: {
+//     issuer: "default",
+//     responseType: ['token', 'id_token'],
+//     display: 'page'
+//   }
+// };
+
 var oktaConfig = {
-  logo: "../images/icon.png",
   baseUrl: "https://dev-49934482.okta.com",
   clientId: "0oa7yhklz0BvikmFq5d6",
   authParams: {
