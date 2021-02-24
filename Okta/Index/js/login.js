@@ -12,15 +12,13 @@ var oktaSignIn = new OktaSignIn({
 
 if (oktaSignIn.token.hasTokensInUrl()) {
   oktaSignIn.token.parseTokensFromUrl(
-  	console.log("recent sign in...")
-
     // If we get here, the user just logged in.
     function success(res) {
     	console.log("success! redirecting...")
 		window.location = redirectUrl;
     },
     function error(err) {
-      console.error(err)
+      console.error(err);
     }
   );
 } 
@@ -31,7 +29,7 @@ else
 
 	// If we get here, the user is already signed in.
   	if (res.status === 'SUCCESS' || res.status === 'ACTIVE') {
-    	console.log("redirecting...");
+    	console.log("redirecting...")
 		window.location = redirectUrl;
     }
     else 
