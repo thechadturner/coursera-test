@@ -160,7 +160,10 @@ else
 	  getUserInfo().done(function(output){
       	let userInfo = parseUserInfo(output)
       	getGroupInfo(userInfo.id)
-      	//document.getElementById("messageBox").innerHTML = "Howdy " + userInfo.firstName + "! You are logged in! :)";
+
+      	if (window.location.href.indexOf('login.html') > 0) {
+      		document.getElementById("top").innerHTML = "Welcome " + userInfo.firstName + "! Nice to see you back! :)";
+      	}
 	  });
 
       return;
@@ -182,3 +185,4 @@ function logout() {
   oktaSignIn.show();
   location.reload()
 }
+
