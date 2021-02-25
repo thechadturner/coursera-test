@@ -9,9 +9,9 @@ oktaSignIn.session.get(function (res) {
 				let groups = parseGroupInfo(groupoutput);
 
 				let element = document.getElementById("projects")
-				let html = undefined
+				let html = ""
 				groups.forEach(group => {
-					html += "<a href='#' onclick='selectProject('"+group+"')'><h1>"+group+"</h1></a>"
+					html += "<a href='onclick='selectProject("+group+")'><h1>"+group+"</h1></a>"
 				});	
 				element.innerHTML = html	
 	  	});
