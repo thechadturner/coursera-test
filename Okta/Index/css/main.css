@@ -249,13 +249,17 @@ div.tooltip {
   padding-top: 15%;
   padding-bottom: 15%;
   display: block; 
-  text-align: 
-  left; width: 650px; 
+  text-align: left; 
+  width: 650px; 
   margin: 0 auto; 
 }
 
 #main-content h1.big { 
   font-size: 50px; 
+}
+
+#projects { 
+  text-align: left; 
 }
 
 .grid line {

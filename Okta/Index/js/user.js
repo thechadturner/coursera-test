@@ -14,7 +14,6 @@ oktaSignIn.session.get(function (res) {
 					html += "<li><a href='#' onclick='selectProject("+group+")'><h1>"+group+"</h1></a></li>"
 				});	
 				html += "</ul>"
-				console.log(html)
 				element.innerHTML = html	
 	  	});
 
@@ -34,4 +33,6 @@ oktaSignIn.session.get(function (res) {
 
 function selectProject(name) {
 	selectedProject = name
+	window.location = 'https://thechadturner.github.io/coursera-test/Okta/Index/login.html';
+	console.log("selected project: " + selectedProject)
 }
