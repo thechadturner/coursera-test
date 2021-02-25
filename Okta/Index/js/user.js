@@ -11,7 +11,7 @@ oktaSignIn.session.get(function (res) {
 				let element = document.getElementById("projects")
 				let html = ""
 				groups.forEach(group => {
-					html += "<a href='onclick='selectProject("+group+")'><h1>"+group+"</h1></a>"
+					html += "<a href='#' onclick='selectProject("+group+")'><h1>"+group+"</h1></a>"
 				});	
 				element.innerHTML = html	
 	  	});
