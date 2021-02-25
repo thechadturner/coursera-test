@@ -31,8 +31,8 @@ oktaSignIn.session.get(function (res) {
 });
 
 function selectProject(name) {
-	selectedProject = name;
-	console.log("selected project: " + selectedProject);
+	localStorage.setItem("selectedProject", name);
+	console.log("selected project: " + name);
 
 	console.log("redirecting...");
 	window.location = 'https://thechadturner.github.io/coursera-test/Okta/Index/project.html';

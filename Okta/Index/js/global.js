@@ -1,5 +1,3 @@
-let selectedProject = undefined
-
 var oktaSignIn = new OktaSignIn({
     baseUrl: "https://dev-49934482.okta.com",
     clientId: "0oa91qqhzQkCZrZ2R5d6",
