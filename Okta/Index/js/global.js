@@ -128,7 +128,6 @@ function getGroupInfo(userID) {
 	        withCredentials: true
 	    },
 	    success: function (res) {
-	    	parseGroupInfo(res);
 	    }
 	});
 }
