@@ -1,3 +1,5 @@
+let selectedProject = undefined
+
 var oktaSignIn = new OktaSignIn({
     baseUrl: "https://dev-49934482.okta.com",
     clientId: "0oa91qqhzQkCZrZ2R5d6",
@@ -7,6 +9,42 @@ var oktaSignIn = new OktaSignIn({
       display: 'page'
     }
   });
+
+function getUserInfo() {
+    return $.ajax({
+	    url: "https://dev-49934482.okta.com/api/v1/users/me",
+	    type: 'GET',
+	    dataType: 'json',
+	    contentType: 'application/json',
+	    xhrFields: {
+	        withCredentials: true
+	    },
+	    success: function (res) {
+	    }
+	});
+}
+
+function getGroupInfo(userID) {
+    return $.ajax({
+	    url: "https://dev-49934482.okta.com/api/v1/users/"+userID+"/groups",
+	    type: 'GET',
+	    dataType: 'json',
+	    contentType: 'application/json',
+	    xhrFields: {
+	        withCredentials: true
+	    },
+	    success: function (res) {
+	    	var groups = parseGroupInfo(res);
+	    	return groups;
+	    }
+	});
+}
+
+function logout() {
+  console.log("signing out...")
+  oktaSignIn.signOut();
+  window.location = 'https://thechadturner.github.io/coursera-test/Okta/index.html';
+}
 
 function parseUserInfo(obj) {
 	let userInfo = {}
@@ -96,38 +134,4 @@ function parseGroupInfo(obj) {
 	return groups;
 }
 
-function getUserInfo() {
-    return $.ajax({
-	    url: "https://dev-49934482.okta.com/api/v1/users/me",
-	    type: 'GET',
-	    dataType: 'json',
-	    contentType: 'application/json',
-	    xhrFields: {
-	        withCredentials: true
-	    },
-	    success: function (res) {
-	    }
-	});
-}
-
-function getGroupInfo(userID) {
-    return $.ajax({
-	    url: "https://dev-49934482.okta.com/api/v1/users/"+userID+"/groups",
-	    type: 'GET',
-	    dataType: 'json',
-	    contentType: 'application/json',
-	    xhrFields: {
-	        withCredentials: true
-	    },
-	    success: function (res) {
-	    	var groups = parseGroupInfo(res)
-	    	console.log(groups)
-	    }
-	});
-}
-
-function logout() {
-  console.log("signing out...")
-  oktaSignIn.signOut();
-  window.location = 'https://thechadturner.github.io/coursera-test/Okta/index.html';
-}
+function 
