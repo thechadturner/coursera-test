@@ -32,6 +32,10 @@ if (oktaSignIn.token.hasTokensInUrl()) {
 } 
 else 
 {
+  oktaSignIn.authClient.token.getUserInfo().then(function(user) {
+  	console.log(user)
+  }
+
   oktaSignIn.session.get(function (res) {
   	console.log("already signed in..." + res.status);
 
