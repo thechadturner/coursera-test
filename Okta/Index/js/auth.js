@@ -11,10 +11,11 @@ oktaSignIn.session.get(function (res) {
 	  		document.getElementById("top").innerHTML = "Welcome Back - " + userInfo.firstName + "!";
 	  	} 
 	  	else if (window.location.href.indexOf('project.html') > 0) {
+	  		console.log(selectedProject)
 	  		if (selectedProject != undefined) {
 				document.getElementById("top").innerHTML = selectedProject;
-	  		} else {
-				window.location = 'https://thechadturner.github.io/coursera-test/Okta/Index/login.html'; 
+	  	// 	} else {
+				// window.location = 'https://thechadturner.github.io/coursera-test/Okta/Index/login.html'; 
 	  		}	
 	  	}
 	  });
