@@ -287,25 +287,25 @@ div.tooltip {
     width: 90%px;
   }
 
-	.navbar {
-		width: 1200px;
-	}
+  .navbar {
+	width: 1200px;
+  }
 
-	#header-nav .container{
-		padding-top: 5px;
-		margin-left: 10px;
-	}
+  #header-nav .container{
+	padding-top: 5px;
+	margin-left: 10px;
+  }
 
-	#back {
-		position: absolute;
-		left: 93%;
-		top: 45px;
-		padding: 0px;
-	}
+  #back {
+	position: absolute;
+	left: 93%;
+	top: 45px;
+	padding: 0px;
+  }
 
-	#main-content {
-		width: 1200px;
-	}
+  #main-content {
+	width: 1200px;
+  }
 
   #main-content .container {
     width: 1200px;
