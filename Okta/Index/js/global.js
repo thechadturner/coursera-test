@@ -10,36 +10,6 @@ var oktaSignIn = new OktaSignIn({
     }
   });
 
-function getUserInfo() {
-    return $.ajax({
-	    url: "https://dev-49934482.okta.com/api/v1/users/me",
-	    type: 'GET',
-	    dataType: 'json',
-	    contentType: 'application/json',
-	    xhrFields: {
-	        withCredentials: true
-	    },
-	    success: function (res) {
-	    }
-	});
-}
-
-function getGroupInfo(userID) {
-    return $.ajax({
-	    url: "https://dev-49934482.okta.com/api/v1/users/"+userID+"/groups",
-	    type: 'GET',
-	    dataType: 'json',
-	    contentType: 'application/json',
-	    xhrFields: {
-	        withCredentials: true
-	    },
-	    success: function (res) {
-	    	var groups = parseGroupInfo(res);
-	    	return groups;
-	    }
-	});
-}
-
 function logout() {
   console.log("signing out...")
   oktaSignIn.signOut();
@@ -95,7 +65,7 @@ function parseUserInfo(obj) {
 		}
 	}
 
-	console.log(userInfo)
+	//console.log(userInfo)
 	return userInfo
 }
 
@@ -133,3 +103,33 @@ function parseGroupInfo(obj) {
 
 	return groups;
 } 
+
+function getUserInfo() {
+    return $.ajax({
+	    url: "https://dev-49934482.okta.com/api/v1/users/me",
+	    type: 'GET',
+	    dataType: 'json',
+	    contentType: 'application/json',
+	    xhrFields: {
+	        withCredentials: true
+	    },
+	    success: function (res) {
+	    }
+	});
+}
+
+function getGroupInfo(userID) {
+    return $.ajax({
+	    url: "https://dev-49934482.okta.com/api/v1/users/"+userID+"/groups",
+	    type: 'GET',
+	    dataType: 'json',
+	    contentType: 'application/json',
+	    xhrFields: {
+	        withCredentials: true
+	    },
+	    success: function (res) {
+	    	var groups = parseGroupInfo(res);
+	    	return groups;
+	    }
+	});
+}
