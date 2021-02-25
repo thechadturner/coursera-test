@@ -13,7 +13,7 @@ oktaSignIn.session.get(function (res) {
 				groups.forEach(group => {
 					html += "<li><a href='#' onclick='selectProject("+group+")'><h1>"+group+"</h1></a></li>"
 				});	
-				html = "</ul>"
+				html += "</ul>"
 				console.log(html)
 				element.innerHTML = html	
 	  	});
