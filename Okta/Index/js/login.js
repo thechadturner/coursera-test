@@ -29,8 +29,7 @@ else
 	// If we get here, the user is already signed in.
   	if (res.status === 'ACTIVE') {
     	console.log("redirecting...");
-		// window.location = redirectUrl;
-		res.session.setCookieAndRedirect(redirectUrl);
+		window.location = redirectUrl;
 		return;
     }
 
