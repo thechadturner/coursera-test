@@ -14,7 +14,8 @@ oktaSignIn.session.get(function (res) {
 					html += "<li><a href='#' onclick='selectProject("+group+")'><h1>"+group+"</h1></a></li>"
 				});	
 				html = "</ul>"
-				document.getElementById("projects").innerHTML = html	
+				console.log(html)
+				element.innerHTML = html	
 	  	});
 
 	  	if (window.location.href.indexOf('user.html') > 0) {
