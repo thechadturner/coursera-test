@@ -12,9 +12,8 @@ if (oktaSignIn.token.hasTokensInUrl()) {
 
         window.location.hash='';
 
-		console.log("success! redirecting...");
-		window.location = redirectUrl;
-		//res.session.setCookieAndRedirect(redirectUrl);
+		//console.log("success! redirecting...");
+		//window.location = redirectUrl;
     },
     function error(err) {
       console.error(err);
@@ -38,6 +37,8 @@ else
 	oktaSignIn.renderEl(
       { el: '#okta-login-container' },
       function success(res) {
+      	console.log("redirecting...");
+      	res.session.setCookieAndRedirect(redirectUrl);
       },
       function error(err) {
         console.error(err);
