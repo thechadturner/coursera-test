@@ -1,6 +1,6 @@
 var oktaSignIn = new OktaSignIn({
     baseUrl: "https://dev-49934482.okta.com",
-    clientId: "0oa7yhklz0BvikmFq5d6",
+    clientId: "0oa91qqhzQkCZrZ2R5d6",
     authParams: {
       issuer: "default",
       responseType: ['token', 'id_token'],
