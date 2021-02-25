@@ -132,6 +132,4 @@ function parseGroupInfo(obj) {
 	}
 
 	return groups;
-}
-
-function 
+} 
