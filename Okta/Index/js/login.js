@@ -12,8 +12,8 @@ if (oktaSignIn.token.hasTokensInUrl()) {
 
         window.location.hash='';
 
-		//console.log("success! redirecting...");
-		//window.location = redirectUrl;
+		console.log("success! redirecting...");
+		window.location = redirectUrl;
     },
     function error(err) {
       console.error(err);
