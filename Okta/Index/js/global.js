@@ -128,8 +128,7 @@ function getGroupInfo(userID) {
 	        withCredentials: true
 	    },
 	    success: function (res) {
-	    	var groups = parseGroupInfo(res);
-	    	return groups;
+	    	parseGroupInfo(res);
 	    }
 	});
 }
