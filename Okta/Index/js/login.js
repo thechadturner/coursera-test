@@ -23,7 +23,8 @@ if (oktaSignIn.token.hasTokensInUrl()) {
         window.location.hash='';
 
 		console.log("success! redirecting...");
-		window.location = redirectUrl;
+		//window.location = redirectUrl;
+		res.session.setCookieAndRedirect(redirectUrl);
     },
     function error(err) {
       console.error(err);
@@ -41,7 +42,8 @@ else
 	// If we get here, the user is already signed in.
   	if (res.status === 'ACTIVE') {
     	console.log("redirecting...");
-		window.location = redirectUrl;
+		// window.location = redirectUrl;
+		res.session.setCookieAndRedirect(redirectUrl);
 		return;
     }
 
