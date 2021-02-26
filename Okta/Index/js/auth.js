@@ -32,7 +32,7 @@ oktaSignIn.session.get(function (res) {
 						return;
 					}
 
-					if (allowaccess = false) {
+					if (allowaccess === false) {
 						window.location = 'https://thechadturner.github.io/coursera-test/Okta/Index/denied.html'; 
 					}
 				});
