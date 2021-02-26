@@ -14,6 +14,7 @@ oktaSignIn.session.get(function (res) {
 			sessionStorage.setItem("projects", groups)
 
 			groups.forEach(group => {
+				console.log(group.name + ", " + selectedProject)
 				if (group.name === selectedProject) {
 					selectedProjectDescription = group.description
 					projectAccess = true
