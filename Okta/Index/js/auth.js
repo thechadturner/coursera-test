@@ -5,7 +5,7 @@ oktaSignIn.session.get(function (res) {
 	    let selectedProject = localStorage.getItem("selectedProject")
 	    let selectedProjectDescription = undefined
 
-	    getUserInfo().done(function(output){
+	    getUserInfo().done(function(useroutput){
 	    let userInfo = parseUserInfo(useroutput);
 	  	sessionStorage.setItem("userInfo", userInfo)
 
