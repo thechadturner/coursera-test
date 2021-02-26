@@ -11,8 +11,11 @@ oktaSignIn.session.get(function (res) {
 				let groups = parseGroupInfo(groupoutput);
 				sessionStorage.setItem("projects", groups);
 
+				let allowaccess = false;
 				groups.forEach(group => {
 					if (group.name === selectedProject) {
+						allowaccess = true;
+
 			  			document.getElementById("back").innerHTML = "<a href='#' onclick='logout()'><h3>Logout</h3></a>";
 
 					  	if (window.location.href.indexOf('user.html') > 0) {
@@ -29,7 +32,9 @@ oktaSignIn.session.get(function (res) {
 						return;
 					}
 
-					window.location = 'https://thechadturner.github.io/coursera-test/Okta/Index/denied.html'; 
+					if (allowaccess = false) {
+						window.location = 'https://thechadturner.github.io/coursera-test/Okta/Index/denied.html'; 
+					}
 				});
 		  	});
 	    });
