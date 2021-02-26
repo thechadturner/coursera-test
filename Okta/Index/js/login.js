@@ -10,6 +10,9 @@ if (oktaSignIn.token.hasTokensInUrl()) {
         oktaSignIn.tokenManager.add('accessToken', accessToken);
         oktaSignIn.tokenManager.add('idToken', idToken);
 
+        sessionStorage.setItem("accessToken", accessToken)
+        sessionStorage.setItem("idToken", idToken)
+
         window.location.hash='';
 
 		console.log("success! redirecting...");
@@ -23,7 +26,6 @@ if (oktaSignIn.token.hasTokensInUrl()) {
 else 
 {
   oktaSignIn.session.get(function (res) {
-  	console.log(res);
   	console.log("already signed in..." + res.status);
 
 	// If we get here, the user is already signed in.
