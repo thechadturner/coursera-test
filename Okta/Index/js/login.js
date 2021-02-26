@@ -10,9 +10,6 @@ if (oktaSignIn.token.hasTokensInUrl()) {
         oktaSignIn.tokenManager.add('accessToken', accessToken);
         oktaSignIn.tokenManager.add('idToken', idToken);
 
-        sessionStorage.setItem("accessToken", accessToken)
-        sessionStorage.setItem("idToken", idToken)
-
         window.location.hash='';
 
 		console.log("success! redirecting...");
