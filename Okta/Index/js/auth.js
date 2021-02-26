@@ -13,6 +13,7 @@ oktaSignIn.session.get(function (res) {
 
 				let allowaccess = false;
 				groups.forEach(group => {
+					console.log(group.name + ", " + selectedProject)
 					if (group.name === selectedProject) {
 						allowaccess = true;
 
@@ -31,9 +32,9 @@ oktaSignIn.session.get(function (res) {
 						return;
 					}
 
-					if (allowaccess === false) {
-						window.location = 'https://thechadturner.github.io/coursera-test/Okta/Index/denied.html'; 
-					}
+					// if (allowaccess === false) {
+					// 	window.location = 'https://thechadturner.github.io/coursera-test/Okta/Index/denied.html'; 
+					// }
 				});
 		  	});
 	    });
