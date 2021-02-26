@@ -11,6 +11,7 @@ var oktaSignIn = new OktaSignIn({
 function logout() {
   console.log("signing out...")
   oktaSignIn.signOut();
+  localStorage.setItem("selectedProject", undefined);
   window.location = 'https://thechadturner.github.io/coursera-test/Okta/index.html';
 }
 
