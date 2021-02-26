@@ -121,9 +121,10 @@ function getUserInfo() {
 	    type: 'GET',
 	    dataType: 'json',
 	    contentType: 'application/json',
-	    xhrFields: {
-	        withCredentials: true
-	    },
+	    Authorization: "SSWS 00TzHEEowrq1HBgAUS5vbRxf8gfpH1uDV38jX2G_8T",
+	    // xhrFields: {
+	    //     withCredentials: true
+	    // },
 	    success: function (res) {
 	    }
 	});
@@ -135,9 +136,10 @@ function getGroupInfo(userID) {
 	    type: 'GET',
 	    dataType: 'json',
 	    contentType: 'application/json',
-	    xhrFields: {
-	        withCredentials: true
-	    },
+	    Authorization: "SSWS 00TzHEEowrq1HBgAUS5vbRxf8gfpH1uDV38jX2G_8T",
+	    // xhrFields: {
+	    //     withCredentials: true
+	    // },
 	    success: function (res) {
 	    }
 	});
