@@ -15,15 +15,19 @@ oktaSignIn.session.get(function (res) {
 
 			groups.forEach(group => {
 				if (group.name === selectedProject) {
-					console.log('selected project: ' + selectedProject)
-					selectedProjectDescription = group.description;
-					projectAccess = true;
+					sessionStorage.setItem("projectDescription", group.description);
+					sessionStorage.setItem("projectAccess", true);
+
 					return;
 				}
 			});
 	  	});
 
+	  	projectAccess = sessionStorage.getItem("projectAccess")
+
 	  	if (projectAccess === true) {
+	  		selectedProjectDescription = sessionStorage.getItem("projectDescription")
+
 		  	document.getElementById("back").innerHTML = "<a href='#' onclick='logout()'><h3>Logout</h3></a>";
 
 		  	if (window.location.href.indexOf('user.html') > 0) {
