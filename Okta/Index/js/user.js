@@ -1,30 +1,33 @@
 oktaSignIn.session.get(function (res) {
 	// If we get here, the user is already signed in.
 	if (res.status === 'ACTIVE') {
-	  getUserInfo().done(function(useroutput){
-	  	let userInfo = parseUserInfo(useroutput);
-	  	sessionStorage.setItem("userInfo", userInfo)
+	    getUserInfo().done(function(useroutput){
+		  	let userInfo = parseUserInfo(useroutput);
+		  	sessionStorage.setItem("userInfo", userInfo)
 
-	  	getGroupInfo(userInfo.id).done(function(groupoutput){
-			let groups = parseGroupInfo(groupoutput);
-			sessionStorage.setItem("projects", groups)
+		  	console.log("inside user")
+		  	getGroupInfo(userInfo.id).done(function(groupoutput){
+		  		console.log("inside group")
 
-			let element = document.getElementById("projects")
-			let html = ""
-			groups.forEach(group => {
-				console.log(group.name)
-				html += "<button onclick=selectProject('"+group.name+"')>"+group.description+"</button>"
-			});	
-			element.innerHTML = html	
-	  	});
+				let groups = parseGroupInfo(groupoutput);
+				sessionStorage.setItem("projects", groups)
 
-	  	if (window.location.href.indexOf('user.html') > 0) {
-	  		document.getElementById("back").innerHTML = "<a href='#' onclick='logout()'><h3>Logout</h3></a>";
-	  		document.getElementById("top").innerHTML = "Welcome Back - " + userInfo.firstName + "!";
-	  	}
-	  });
+				let element = document.getElementById("projects")
+				let html = ""
+				groups.forEach(group => {
+					console.log(group.name)
+					html += "<button onclick=selectProject('"+group.name+"')>"+group.description+"</button>"
+				});	
+				element.innerHTML = html	
+		  	});
 
-	  return;
+		  	if (window.location.href.indexOf('user.html') > 0) {
+		  		document.getElementById("back").innerHTML = "<a href='#' onclick='logout()'><h3>Logout</h3></a>";
+		  		document.getElementById("top").innerHTML = "Welcome Back - " + userInfo.firstName + "!";
+		  	}
+		});
+
+	  	return;
 	} 
 	else 
 	{
