@@ -103,12 +103,15 @@ function parseGroupInfo(obj) {
 						}
 					}
 
-					groups.push(groupinfo)
+					if (groupinfo != {}) {
+						groups.push(groupinfo)
+					}
 				}
 			}
 		}
 	}
 
+	console.log(groups)
 	return groups;
 } 
 
