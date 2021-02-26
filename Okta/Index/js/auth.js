@@ -33,11 +33,9 @@ oktaSignIn.session.get(function (res) {
 					}
 				});
 
-				console.log(allowaccess)
-
-				// if (allowaccess === false) {
-				// 	window.location = 'https://thechadturner.github.io/coursera-test/Okta/Index/denied.html'; 
-				// }
+				if (allowaccess === false) {
+					window.location = 'https://thechadturner.github.io/coursera-test/Okta/Index/denied.html'; 
+				}
 		  	});
 	    });
 
