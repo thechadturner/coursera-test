@@ -80,6 +80,8 @@ function parseGroupInfo(obj) {
 				var val = row[key];
 
 				if (key_str === 'profile') {
+					let groupinfo = {}
+
 					for(var k in val){
 						if (typeof k === 'string' || k instanceof String) {
 							var k_str = k.toString().trim()
@@ -89,11 +91,19 @@ function parseGroupInfo(obj) {
 								var v_str = v.toString().trim()
 
 								if (v_str != 'Everyone') {
-									groups.push(v_str);
+									groupinfo.name = v_str;
+								}
+							} else if (k_str === 'description') {
+								var v_str = v.toString().trim()
+
+								if (v_str != 'All users in your organization') {
+									groupinfo.description = v_str;
 								}
 							}
 						}
 					}
+
+					groups.push(groupinfo)
 				}
 			}
 		}

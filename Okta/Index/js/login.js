@@ -36,8 +36,6 @@ else
 	oktaSignIn.renderEl(
       { el: '#okta-login-container' },
       function success(res) {
-      	console.log("redirecting...");
-      	res.session.setCookieAndRedirect(redirectUrl);
       },
       function error(err) {
         console.error(err);
