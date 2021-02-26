@@ -11,13 +11,14 @@ oktaSignIn.session.get(function (res) {
 
 	  	getGroupInfo(userInfo.id).done(function(groupoutput){
 			let groups = parseGroupInfo(groupoutput);
-			sessionStorage.setItem("projects", groups)
+			sessionStorage.setItem("projects", groups);
 
 			groups.forEach(group => {
-				console.log(group.name + ", " + selectedProject)
 				if (group.name === selectedProject) {
-					selectedProjectDescription = group.description
-					projectAccess = true
+					console.log('selected project: ' + selectedProject)
+					selectedProjectDescription = group.description;
+					projectAccess = true;
+					return;
 				}
 			});
 	  	});
