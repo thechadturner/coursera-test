@@ -79,9 +79,9 @@ function parseGroupInfo(obj) {
 				var key_str = key.toString().trim()
 				var val = row[key];
 
-				let groupinfo = {}
-
 				if (key_str === 'profile') {
+					let groupinfo = {}
+
 					for(var k in val){
 						if (typeof k === 'string' || k instanceof String) {
 							var k_str = k.toString().trim()
@@ -102,11 +102,10 @@ function parseGroupInfo(obj) {
 							}
 						}
 					}
-				}
 
-				if (groupinfo != {}) {
-					console.log(groupinfo)
-					groups.push(groupinfo)
+					if (Object.keys(groupinfo).length > 0) {
+						groups.push(groupinfo)
+					}
 				}
 			}
 		}
