@@ -21,6 +21,8 @@ oktaSignIn.session.get(function (res) {
 				element.innerHTML = html	
 		  	});
 
+		  	console.log(getCookie("projects"))
+
 		  	if (window.location.href.indexOf('user.html') > 0) {
 		  		document.getElementById("back").innerHTML = "<a href='#' onclick='logout()'><h3>Logout</h3></a>";
 		  		document.getElementById("top").innerHTML = "Welcome Back - " + userInfo.firstName + "!";
