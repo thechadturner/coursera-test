@@ -119,9 +119,12 @@ function parseIdToken(obj) {
 	let groups = obj.claims.projects
 	console.log(groups)
 
+	let projects = []
+
 	var i;
 	for (i = 0; i < groups.length; i++) {
 	  	if (groups[i] != 'Everyone') {
+	  		console.log(groups[i])
 			projects.push(groups[i])
 		}
 	}
