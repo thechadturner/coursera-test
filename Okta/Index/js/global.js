@@ -120,6 +120,8 @@ function parseIdToken(obj) {
 
 	let projects = []
 	for (group in groups) {
+		console.log(group)
+		
 		if (group != 'Everyone') {
 			projects.push(group)
 		}
