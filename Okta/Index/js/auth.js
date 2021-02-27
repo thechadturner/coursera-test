@@ -3,7 +3,7 @@ oktaSignIn.session.get(function (res) {
 	if (res.status === 'ACTIVE') {
 	    let selectedProject = localStorage.getItem("selectedProject")
 
-	    console.log(localStorage.getItem('accessToken'))
+	    console.log(document.cookie)
 
 	    getUserInfo().done(function(useroutput){
 	    	let userInfo = parseUserInfo(useroutput);
