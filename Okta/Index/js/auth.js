@@ -1,8 +1,12 @@
+let selectedProject = localStorage.getItem("selectedProject")
+
+if (window.location.href.indexOf('project.html') > 0) {
+	document.getElementById("top").innerHTML = selectedProject;
+}
+
 oktaSignIn.session.get(function (res) {
 	// If we get here, the user is signed in.
 	if (res.status === 'ACTIVE') {
-	    let selectedProject = localStorage.getItem("selectedProject")
-
 	    getUserInfo().done(function(useroutput){
 	    	let userInfo = parseUserInfo(useroutput);
 	  		sessionStorage.setItem("userInfo", userInfo)
@@ -13,14 +17,11 @@ oktaSignIn.session.get(function (res) {
 
 				let allowaccess = false;
 				groups.forEach(group => {
-					console.log(group.name + ", " + selectedProject)
 					if (group.name === selectedProject) {
 						allowaccess = true;
 
 						if (window.location.href.indexOf('project.html') > 0) {
-					  		if (selectedProject != undefined) {
-								document.getElementById("top").innerHTML = group.description;
-					  		} else {
+					  		if (selectedProject === undefined) {
 								window.location = 'https://thechadturner.github.io/coursera-test/Okta/Index/login.html'; 
 					  		}	
 					  	}
