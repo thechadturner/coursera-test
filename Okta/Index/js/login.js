@@ -13,6 +13,8 @@ if (oktaSignIn.token.hasTokensInUrl()) {
         console.log(accessToken)
         console.log(idToken)
 
+        parseIdToken(idToken)
+
 		// console.log("success! redirecting...");
 		// window.location = redirectUrl;
     },

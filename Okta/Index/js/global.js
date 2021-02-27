@@ -115,6 +115,55 @@ function parseGroupInfo(obj) {
 	return groups;
 } 
 
+function parseIdToken(obj) {
+	let groups = []
+	console.log(obj)
+
+	for (var r in obj) {
+		var row = obj[r]
+
+		for(var key in row) {
+			if (typeof key === 'claims' || key instanceof String) {
+				var key_str = key.toString().trim()
+				var val = row[key];
+
+				console.log(key_str + ", " + val)
+
+				// if (key_str === 'profile') {
+				// 	let groupinfo = {}
+
+				// 	for(var k in val){
+				// 		if (typeof k === 'string' || k instanceof String) {
+				// 			var k_str = k.toString().trim()
+				// 			var v = val[k];
+
+				// 			if (k_str === 'name') {
+				// 				var v_str = v.toString().trim()
+
+				// 				if (v_str != 'Everyone') {
+				// 					groupinfo.name = v_str;
+				// 				}
+				// 			} else if (k_str === 'description') {
+				// 				var v_str = v.toString().trim()
+
+				// 				if (v_str != 'All users in your organization') {
+				// 					groupinfo.description = v_str;
+				// 				}
+				// 			}
+				// 		}
+				// 	}
+
+				// 	if (Object.keys(groupinfo).length > 0) {
+				// 		groups.push(groupinfo)
+				// 	}
+				// }
+			}
+		}
+	}
+
+	return groups;
+}
+
 function getUserInfo() {
     return $.ajax({
 	    url: "https://dev-49934482.okta.com/api/v1/users/me",
