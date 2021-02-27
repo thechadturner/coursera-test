@@ -13,7 +13,7 @@ oktaSignIn.session.get(function (res) {
 				let html = ""
 				groups.forEach(group => {
 					console.log(group.description)
-					html += "<button onclick=selectProject('"+group.name+"','"+group.description.toString()+"')>"+group.description+"</button>"
+					html += "<button onclick=selectProject("+group+")>"+group.description+"</button>"
 				});	
 				element.innerHTML = html	
 		  	});
@@ -32,9 +32,9 @@ oktaSignIn.session.get(function (res) {
 	}
 });
 
-function selectProject(name, desc) {
-	localStorage.setItem("selectedProjectName", name);
-	localStorage.setItem("selectedProjectDesc", desc);
+function selectProject(dict) {
+	localStorage.setItem("selectedProjectName", dict.name);
+	localStorage.setItem("selectedProjectDesc", dict.description);
 
 	console.log("redirecting...");
 	window.location = 'https://thechadturner.github.io/coursera-test/Okta/Index/project.html';
