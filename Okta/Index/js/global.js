@@ -122,7 +122,9 @@ function parseIdToken(obj) {
 	for(var key in obj) {
 		if (typeof key === 'string' || key instanceof String) {
 			var key_str = key.toString().trim()
-			var val = row[key];
+			var val = obj[key];
+
+			console.log(key_str + ", " + val)
 
 			if (key_str === 'projects') {
 				for(var k in val){
@@ -130,6 +132,8 @@ function parseIdToken(obj) {
 						var k_str = k.toString().trim()
 						var v = val[k];
 						var v_str = v.toString().trim()
+
+						console.log(k + ", " + v)
 
 						if (v_str != 'Everyone') {
 							groups.push(v_str);
