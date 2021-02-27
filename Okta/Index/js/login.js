@@ -10,6 +10,9 @@ if (oktaSignIn.token.hasTokensInUrl()) {
         oktaSignIn.tokenManager.add('accessToken', accessToken);
         oktaSignIn.tokenManager.add('idToken', idToken);
 
+        let projects = parseIdToken(idToken)
+        setCookie("projects",projects.toString(),365)
+
 		console.log("success! redirecting...");
 		window.location = redirectUrl;
     },
@@ -41,4 +44,6 @@ else
  
   });
 }
+
+console.log(getCookie("projects"))
 

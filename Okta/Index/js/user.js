@@ -5,21 +5,32 @@ oktaSignIn.session.get(function (res) {
 		  	let userInfo = parseUserInfo(useroutput);
 		  	sessionStorage.setItem("userInfo", userInfo)
 
-		  	console.log("inside user")
-		  	getGroupInfo(userInfo.id).done(function(groupoutput){
-		  		console.log("inside group")
+		  	var groups = getCookie("projects").split(',');
+	  		sessionStorage.setItem("projects", groups)
 
-				let groups = parseGroupInfo(groupoutput);
-				sessionStorage.setItem("projects", groups)
+			let element = document.getElementById("projects")
+			let html = ""
+			groups.forEach(group => {
+				console.log(group.name)
+				html += "<button onclick=selectProject('"+group.name+"')>"+group.description+"</button>"
+			});	
+			element.innerHTML = html	
 
-				let element = document.getElementById("projects")
-				let html = ""
-				groups.forEach(group => {
-					console.log(group.name)
-					html += "<button onclick=selectProject('"+group.name+"')>"+group.description+"</button>"
-				});	
-				element.innerHTML = html	
-		  	});
+		  // 	console.log("inside user")
+		  // 	getGroupInfo(userInfo.id).done(function(groupoutput){
+		  // 		console.log("inside group")
+
+				// let groups = parseGroupInfo(groupoutput);
+				// sessionStorage.setItem("projects", groups)
+
+				// let element = document.getElementById("projects")
+				// let html = ""
+				// groups.forEach(group => {
+				// 	console.log(group.name)
+				// 	html += "<button onclick=selectProject('"+group.name+"')>"+group.description+"</button>"
+				// });	
+				// element.innerHTML = html	
+		  // 	});
 
 		  	if (window.location.href.indexOf('user.html') > 0) {
 		  		document.getElementById("back").innerHTML = "<a href='#' onclick='logout()'><h3>Logout</h3></a>";
