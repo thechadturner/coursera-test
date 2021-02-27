@@ -119,30 +119,32 @@ function parseIdToken(obj) {
 	let groups = []
 	console.log(obj)
 
-	for(var key in obj) {
-		if (typeof key === 'string' || key instanceof String) {
-			var key_str = key.toString().trim()
-			var val = obj[key];
+	groups = obj.claims.projects
 
-			console.log(key_str + ", " + val)
+	// for(var key in obj) {
+	// 	if (typeof key === 'string' || key instanceof String) {
+	// 		var key_str = key.toString().trim()
+	// 		var val = obj[key];
 
-			if (key_str === 'projects') {
-				for(var k in val){
-					if (typeof k === 'string' || k instanceof String) {
-						var k_str = k.toString().trim()
-						var v = val[k];
-						var v_str = v.toString().trim()
+	// 		console.log(key_str + ", " + val)
 
-						console.log(k + ", " + v)
+	// 		if (key_str === 'projects') {
+	// 			for(var k in val){
+	// 				if (typeof k === 'string' || k instanceof String) {
+	// 					var k_str = k.toString().trim()
+	// 					var v = val[k];
+	// 					var v_str = v.toString().trim()
 
-						if (v_str != 'Everyone') {
-							groups.push(v_str);
-						} 
-					}
-				}
-			}
-		}
-	}
+	// 					console.log(k + ", " + v)
+
+	// 					if (v_str != 'Everyone') {
+	// 						groups.push(v_str);
+	// 					} 
+	// 				}
+	// 			}
+	// 		}
+	// 	}
+	// }
 
 	console.log(groups)
 	return groups;
