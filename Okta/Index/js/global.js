@@ -119,7 +119,7 @@ function parseIdToken(obj) {
 	let groups = []
 	console.log(obj)
 
-	for(var key in row) {
+	for(var key in obj) {
 		if (typeof key === 'string' || key instanceof String) {
 			var key_str = key.toString().trim()
 			var val = row[key];
