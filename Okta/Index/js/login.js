@@ -10,11 +10,11 @@ if (oktaSignIn.token.hasTokensInUrl()) {
         oktaSignIn.tokenManager.add('accessToken', accessToken);
         oktaSignIn.tokenManager.add('idToken', idToken);
 
-        document.cookie = "idToken="+JSON.stringify(idToken);
-        window.location.hash='';
+        console.log(accessToken)
+        console.log(idToken)
 
-		console.log("success! redirecting...");
-		window.location = redirectUrl;
+		// console.log("success! redirecting...");
+		// window.location = redirectUrl;
     },
     function error(err) {
       console.error(err);
