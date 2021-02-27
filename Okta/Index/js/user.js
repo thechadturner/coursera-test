@@ -5,9 +5,9 @@ oktaSignIn.session.get(function (res) {
 		  	let userInfo = parseUserInfo(useroutput);
 		  	sessionStorage.setItem("userInfo", userInfo)
 
-		  	console.log("inside user")
+		  	// console.log("inside user")
 		  	getGroupInfo(userInfo.id).done(function(groupoutput){
-		  		console.log("inside group")
+		  		// console.log("inside group")
 
 				let groups = parseGroupInfo(groupoutput);
 				sessionStorage.setItem("projects", groups)
@@ -15,7 +15,7 @@ oktaSignIn.session.get(function (res) {
 				let element = document.getElementById("projects")
 				let html = ""
 				groups.forEach(group => {
-					console.log(group.name)
+					// console.log(group.name)
 					html += "<button onclick=selectProject('"+group.name+"')>"+group.description+"</button>"
 				});	
 				element.innerHTML = html	

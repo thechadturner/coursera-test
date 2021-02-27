@@ -17,11 +17,7 @@ oktaSignIn.session.get(function (res) {
 					if (group.name === selectedProject) {
 						allowaccess = true;
 
-					  	if (window.location.href.indexOf('user.html') > 0) {
-					  		document.getElementById("top").innerHTML = "Welcome Back - " + userInfo.firstName + "!";
-					  		document.getElementById("back").innerHTML = "<a href='#' onclick='logout()'><h3>Logout</h3></a>";
-					  	} 
-					  	else if (window.location.href.indexOf('project.html') > 0) {
+						if (window.location.href.indexOf('project.html') > 0) {
 					  		if (selectedProject != undefined) {
 								document.getElementById("top").innerHTML = group.description;
 					  		} else {
