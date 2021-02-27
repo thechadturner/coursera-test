@@ -117,7 +117,7 @@ function parseGroupInfo(obj) {
 
 function parseIdToken(obj) {
 	let groups = []
-	// console.log(obj)
+	console.log(obj)
 
 	for (var r in obj) {
 		var row = obj[r]
