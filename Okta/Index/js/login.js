@@ -10,8 +10,11 @@ if (oktaSignIn.token.hasTokensInUrl()) {
         oktaSignIn.tokenManager.add('accessToken', accessToken);
         oktaSignIn.tokenManager.add('idToken', idToken);
 
-		console.log("success! redirecting...");
-		window.location = redirectUrl;
+        console.log(accessToken)
+        console.log(idToken)
+
+		// console.log("success! redirecting...");
+		// window.location = redirectUrl;
     },
     function error(err) {
       console.error(err);
@@ -25,8 +28,8 @@ else
 
 	// If we get here, the user is already signed in.
   	if (res.status === 'ACTIVE') {
-    	console.log("redirecting...");
-		window.location = redirectUrl;
+  //   	console.log("redirecting...");
+		// window.location = redirectUrl;
 		return;
     }
 
