@@ -1,7 +1,7 @@
 oktaSignIn.session.get(function (res) {
 	// If we get here, the user is already signed in.
 	if (res.status === 'ACTIVE') {
-		console.log(sessionStorage.getItem('accessToken'))
+		console.log(localStorage.getItem('accessToken'))
 		
 	    getUserInfo().done(function(useroutput){
 		  	let userInfo = parseUserInfo(useroutput);

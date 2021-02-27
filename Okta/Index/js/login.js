@@ -10,7 +10,7 @@ if (oktaSignIn.token.hasTokensInUrl()) {
         oktaSignIn.tokenManager.add('accessToken', accessToken);
         oktaSignIn.tokenManager.add('idToken', idToken);
 
-        sessionStorage.setItem('accessToken', JSON.stringify(accessToken))
+        localStorage.setItem('accessToken', JSON.stringify(accessToken))
 
         window.location.hash='';
 
