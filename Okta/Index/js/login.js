@@ -28,8 +28,8 @@ else
 
 	// If we get here, the user is already signed in.
   	if (res.status === 'ACTIVE') {
-    	console.log("redirecting...");
-		window.location = redirectUrl;
+  //   	console.log("redirecting...");
+		// window.location = redirectUrl;
 		return;
     }
 
