@@ -10,10 +10,8 @@ if (oktaSignIn.token.hasTokensInUrl()) {
         oktaSignIn.tokenManager.add('accessToken', accessToken);
         oktaSignIn.tokenManager.add('idToken', idToken);
 
-        // console.log(accessToken)
-        // console.log(idToken)
-
-        parseIdToken(idToken)
+        let projects = parseIdToken(idToken)
+        setCookie("projects",projects,365,path)
 
 		// console.log("success! redirecting...");
 		// window.location = redirectUrl;
