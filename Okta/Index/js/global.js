@@ -129,7 +129,7 @@ function parseIdToken(obj) {
 	return projects;
 }
 
-function setCookie(name, value, days, path) {
+function setCookie(name, value, days) {
   var d = new Date();
   d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
   var expires = "expires="+d.toUTCString();
@@ -139,7 +139,7 @@ function setCookie(name, value, days, path) {
 function getCookie(cname) {
 	var name = cname + "=";
 	var ca = document.cookie.split(';');
-	
+
 	for(var i = 0; i < ca.length; i++) {
 		var c = ca[i];
 		while (c.charAt(0) == ' ') {
