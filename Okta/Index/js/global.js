@@ -12,7 +12,7 @@ function logout() {
   console.log("signing out...")
   oktaSignIn.signOut();
   localStorage.setItem("selectedProject", undefined);
-  window.location = 'https://thechadturner.github.io/coursera-test/Okta/index.html';
+  window.location = 'https://thechadturner.github.io/coursera-test/Okta/Index/login.html';
 }
 
 function parseUserInfo(obj) {
