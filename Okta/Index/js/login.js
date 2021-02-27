@@ -10,8 +10,8 @@ if (oktaSignIn.token.hasTokensInUrl()) {
         oktaSignIn.tokenManager.add('accessToken', accessToken);
         oktaSignIn.tokenManager.add('idToken', idToken);
 
-        console.log(accessToken)
-        console.log(idToken)
+        // console.log(accessToken)
+        // console.log(idToken)
 
         parseIdToken(idToken)
 
