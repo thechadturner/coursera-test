@@ -161,5 +161,5 @@ function getInfo() {
 	  	});
 	});
 
-	return true;
+	return;
 }
