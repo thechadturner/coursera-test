@@ -10,6 +10,19 @@ if (oktaSignIn.token.hasTokensInUrl()) {
         oktaSignIn.tokenManager.add('accessToken', accessToken);
         oktaSignIn.tokenManager.add('idToken', idToken);
 
+        getUserInfo().done(function(useroutput){
+	    	let userInfo = parseUserInfo(useroutput);
+	  		sessionStorage.setItem("userInfo", JSON.stringify(userInfo))
+
+	  		let labeltext = userInfo.firstName + "'s Projects"
+	  		document.getElementById("back").innerHTML = "<a href='Index/user.html'><h3>"+labeltext+"</h3></a>"; 
+
+		  	getGroupInfo(userInfo.id).done(function(groupoutput){
+				let groups = parseGroupInfo(groupoutput);
+				sessionStorage.setItem("projects", JSON.stringify(groups));
+		  	});
+	    });
+
 		window.location = redirectUrl;
     },
     function error(err) {
