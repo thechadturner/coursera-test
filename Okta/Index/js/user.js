@@ -30,7 +30,7 @@ function buildGroups() {
 
 		//BUILD TABS
 		groups.forEach(group => {
-			if (i === 0) {
+			if (index === 0) {
 				html += "<button class='tablinks' onclick='openProject(event,'"+group.name+"')'>"+group.description+" id='defaultOpen'</button>"
 			} else {
 				html += "<button class='tablinks' onclick='openProject(event,'"+group.name+"')'>"+group.description+"</button>"
@@ -46,7 +46,7 @@ function buildGroups() {
 			html += "<h3>"+group.description+"</h3>"
 			html += "<p>"+group.name+" is the folder name for data files and pages.</p>"
 		});	
-		html += "</div>";
+		html += "</div><br>";
 
 		element.innerHTML = html;
 	}
