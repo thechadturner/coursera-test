@@ -1,7 +1,6 @@
 oktaSignIn.session.get(function (res) {
 	// If we get here, the user is already signed in.
 	if (res.status === 'ACTIVE') {
-		let element = document.getElementById("projects");
 		let userInfo = JSON.parse(sessionStorage.getItem("userInfo"));
 
 		if (userInfo === null) {
@@ -21,6 +20,7 @@ oktaSignIn.session.get(function (res) {
 function buildGroups() {
 	console.log("build groups");
 
+	let element = document.getElementById("projects");
 	let groups = JSON.parse(sessionStorage.getItem("projects"));
 
 	if (groups != null) {
@@ -36,7 +36,7 @@ function buildGroups() {
 	}
 }
 
-setTimeout(buildGroups(), 3000)
+setTimeout(buildGroups(), 5000)
 
 function selectProject(index) {
 	let projects = JSON.parse(sessionStorage.getItem("projects"))
