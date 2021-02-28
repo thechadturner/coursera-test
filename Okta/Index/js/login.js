@@ -68,3 +68,6 @@ else
   });
 }
 
+let groups = JSON.parse(sessionStorage.getItem("projects"))
+console.log(groups)
+
