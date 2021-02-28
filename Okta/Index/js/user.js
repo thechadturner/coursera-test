@@ -22,7 +22,7 @@ oktaSignIn.session.get(function (res) {
 
 		  	if (window.location.href.indexOf('user.html') > 0) {
 		  		document.getElementById("back").innerHTML = "<a href='#' onclick='logout()'><h3>Logout</h3></a>";
-		  		document.getElementById("top").innerHTML = "Welcome Back - " + userInfo.firstName + "!";
+		  		document.getElementById("top").innerHTML = "Welcome Back!";
 		  	}
 		});
 

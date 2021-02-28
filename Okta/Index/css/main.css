@@ -150,6 +150,7 @@ div.tooltip {
    color: #000000;
 }
 
+/* BREAK */
 #main-content .break {
    background-color: #c4113c;
    margin-top: 5px;
@@ -160,6 +161,12 @@ div.tooltip {
 #main-content .break h2 {
    text-align: center;
    color: white;
+}
+
+/* DIVIDER */
+hr.rounded {
+  border-top: 8px solid #bbb;
+  border-radius: 3px;
 }
 
 #main-content .btn-toolbar {
