@@ -33,7 +33,7 @@ function buildGroups() {
 			let name = group.name;
 
 			if (index === 0) {
-				html += "<button class='tablinks' id='defaultOpen' onclick=openProject(event,'"+name+"')>"+group.description+"</button>"
+				html += "<button class='tablinks active' onclick=openProject(event,'"+name+"')>"+group.description+"</button>"
 			} else {
 				html += "<button class='tablinks' onclick=openProject(event,'"+name+"')>"+group.description+"</button>"
 			}
@@ -84,5 +84,3 @@ function selectProject(index) {
 }
 
 setTimeout(buildGroups, 2000);
-
-document.getElementById("defaultOpen").click();
