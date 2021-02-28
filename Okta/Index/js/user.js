@@ -3,6 +3,8 @@ oktaSignIn.session.get(function (res) {
 	if (res.status === 'ACTIVE') {
 		let element = document.getElementById("projects")
 
+		console.log(sessionStorage.getItem("userInfo"))
+
 		if (sessionStorage.getItem("userInfo") === null) {
 			getInfo();
 		}
