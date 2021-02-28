@@ -36,7 +36,7 @@ function buildGroups() {
 	}
 }
 
-setTimeout(buildGroups(), 5000)
+setTimeout(buildGroups, 5000)
 
 function selectProject(index) {
 	let projects = JSON.parse(sessionStorage.getItem("projects"))
