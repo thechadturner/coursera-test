@@ -11,6 +11,7 @@ if (oktaSignIn.token.hasTokensInUrl()) {
         oktaSignIn.tokenManager.add('idToken', idToken);
 
         console.log('logged in');
+        getInfo();
     },
     function error(err) {
       console.error(err);
@@ -23,6 +24,7 @@ else
 	// If we get here, the user is already signed in.
   	if (res.status === 'ACTIVE') {
   		console.log('already logged in');
+  		getInfo();
 
 		return;
     }
@@ -30,7 +32,6 @@ else
 	oktaSignIn.renderEl(
       { el: '#okta-login-container' },
       function success(res) {
-      	getInfo();
       },
       function error(err) {
         console.error(err);
