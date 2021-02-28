@@ -3,7 +3,8 @@ oktaSignIn.session.get(function (res) {
 	if (res.status === 'ACTIVE') {
 		let element = document.getElementById("projects")
 
-		if (sessionStorage.getItem("userInfo") === null) {
+		let userInfo = JSON.parse(sessionStorage.getItem("userInfo"));
+		if (userInfo === null || userInfo === undefined) {
 			getInfo();
 		}
 
