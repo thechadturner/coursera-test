@@ -4,7 +4,17 @@ oktaSignIn.session.get(function (res) {
 		let element = document.getElementById("projects")
 
 		if (sessionStorage.getItem("userInfo") === null) {
-			getInfo();
+			getUserInfo().done(function(useroutput){
+				let userInfo = parseUserInfo(useroutput);
+				sessionStorage.setItem("userInfo", JSON.stringify(userInfo))
+				console.log(userInfo);
+
+			  	getGroupInfo(userInfo.id).done(function(groupoutput){
+					let groups = parseGroupInfo(groupoutput);
+					sessionStorage.setItem("projects", JSON.stringify(groups));
+					console.log(groups);
+			  	});
+			});
 		}
 
 		let groups = JSON.parse(sessionStorage.getItem("projects"));
