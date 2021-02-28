@@ -84,3 +84,5 @@ function selectProject(index) {
 }
 
 setTimeout(buildGroups, 2000);
+
+document.getElementById("defaultOpen").click();
