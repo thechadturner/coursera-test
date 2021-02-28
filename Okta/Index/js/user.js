@@ -8,11 +8,10 @@ oktaSignIn.session.get(function (res) {
 			getInfo();
 		}
 
-		while (working = true) {
-			console.log("waiting...")
-		}
-
 		let groups = JSON.parse(sessionStorage.getItem("projects"));
+
+		console.log("do we have groups yet?")
+		console.log(groups)
 
 		let html = ""
 		let index = 0
@@ -21,6 +20,8 @@ oktaSignIn.session.get(function (res) {
 			index += 1
 		});	
 		element.innerHTML = html
+
+		console.log("element comppleted")
 
 	  	return;
 	} 
@@ -36,4 +37,4 @@ function selectProject(index) {
 	window.location = 'https://thechadturner.github.io/coursera-test/Okta/Index/project.html';
 }
 
-location.reload
+console.log("js completed")
