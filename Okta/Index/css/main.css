@@ -165,7 +165,8 @@ div.tooltip {
 
 /* DIVIDER */
 hr.rounded {
-  border-top: 8px solid #bbb;
+  color: black;
+  border-top: 3px solid #bbb;
   border-radius: 3px;
 }
 
