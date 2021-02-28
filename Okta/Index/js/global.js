@@ -145,6 +145,7 @@ function getGroupInfo(userID) {
 }
 
 function getInfo() {
+	console.log('getting info');
 	getUserInfo().done(function(useroutput){
 		let userInfo = parseUserInfo(useroutput);
 		sessionStorage.setItem("userInfo", JSON.stringify(userInfo))
