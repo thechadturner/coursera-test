@@ -29,7 +29,12 @@ function buildGroups() {
 
 		//BUILD TABS
 		groups.forEach(group => {
-			html += "<button class='tablinks' onclick="openCity(event, group.name)">"+group.description+"</button>"
+			if (i === 0) {
+				html += "<button class='tablinks' onclick="openCity(event, group.name)">"+group.description+" id='defaultOpen'</button>"
+			} else {
+				html += "<button class='tablinks' onclick="openCity(event, group.name)">"+group.description+"</button>"
+			}
+			
 			index += 1
 		});	
 		html += "</div><br>";
