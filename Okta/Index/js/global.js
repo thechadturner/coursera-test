@@ -117,7 +117,7 @@ function parseGroupInfo(obj) {
 } 
 
 function getUserInfo() {
-    return await $.ajax({
+    return $.ajax({
 	    url: "https://dev-49934482.okta.com/api/v1/users/me",
 	    type: 'GET',
 	    dataType: 'json',
@@ -125,13 +125,13 @@ function getUserInfo() {
 	    xhrFields: {
 	        withCredentials: true
 	    },
-	    success: function (res) {
+	    complete: function (res) {
 	    }
 	});
 }
 
 function getGroupInfo(userID) {
-    return await $.ajax({
+    return $.ajax({
 	    url: "https://dev-49934482.okta.com/api/v1/users/"+userID+"/groups",
 	    type: 'GET',
 	    dataType: 'json',
@@ -139,7 +139,7 @@ function getGroupInfo(userID) {
 	    xhrFields: {
 	        withCredentials: true
 	    },
-	    success: function (res) {
+	    complete: function (res) {
 	    }
 	});
 }
