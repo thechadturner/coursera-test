@@ -31,9 +31,9 @@ function buildGroups() {
 		//BUILD TABS
 		groups.forEach(group => {
 			if (index === 0) {
-				html += "<button class='tablinks' id='defaultOpen' onclick='openProject(event,'"+group.name+"')'>"+group.description+"</button>"
+				html += "<button class='tablinks' id='defaultOpen' onclick='openProject(event,"+group.name+")'>"+group.description+"</button>"
 			} else {
-				html += "<button class='tablinks' onclick='openProject(event,'"+group.name+"')'>"+group.description+"</button>"
+				html += "<button class='tablinks' onclick='openProject(event,"+group.name+")'>"+group.description+"</button>"
 			}
 			
 			index += 1
