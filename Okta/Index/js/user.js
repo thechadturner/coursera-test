@@ -27,15 +27,44 @@ function buildGroups() {
 		let html = "<div class='tab'>";
 		let index = 0;
 
+		//BUILD TABS
 		groups.forEach(group => {
-			// html += "<button onclick=selectProject("+index+")>"+group.description+"</button>"
-			html += "<button class='tablinks'>"+group.description+"</button>"
+			html += "<button class='tablinks' onclick="openCity(event, group.name)">"+group.description+"</button>"
 			index += 1
+		});	
+		html += "</div><br>";
+
+		//BUILD TAB CONTENT
+		groups.forEach(group => {
+			html += "<div id="+group.name+" class='tabcontent'>"
+			html += "<h3>"+group.description+"</h3>"
+			html += "<p>"+group.name+" is the folder name for data files and pages.</p>"
 		});	
 		html += "</div>";
 
 		element.innerHTML = html;
 	}
+}
+
+function openProject(evt, name) {
+  // Declare all variables
+  var i, tabcontent, tablinks;
+
+  // Get all elements with class="tabcontent" and hide them
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+
+  // Get all elements with class="tablinks" and remove the class "active"
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+
+  // Show the current tab, and add an "active" class to the button that opened the tab
+  document.getElementById(name).style.display = "block";
+  evt.currentTarget.className += " active";
 }
 
 function selectProject(index) {
