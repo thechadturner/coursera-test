@@ -156,6 +156,10 @@ function getInfo() {
 	  	getGroupInfo(userInfo.id).done(function(groupoutput){
 			let groups = parseGroupInfo(groupoutput);
 			sessionStorage.setItem("projects", JSON.stringify(groups));
+
+			console.log(groups)
 	  	});
 	});
+
+	return true;
 }

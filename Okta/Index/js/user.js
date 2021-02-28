@@ -8,7 +8,8 @@ oktaSignIn.session.get(function (res) {
 		console.log(userInfo)
 
 		if (userInfo === null) {
-			getInfo();
+			let x = getInfo();
+			console.log("x: "+x)
 		}
 
 		let groups = JSON.parse(sessionStorage.getItem("projects"));
