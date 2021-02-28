@@ -11,7 +11,7 @@ if (oktaSignIn.token.hasTokensInUrl()) {
         oktaSignIn.tokenManager.add('idToken', idToken);
 
         console.log('logged in');
-        getInfo();
+        window.location = redirectUrl;
     },
     function error(err) {
       console.error(err);
@@ -24,7 +24,7 @@ else
 	// If we get here, the user is already signed in.
   	if (res.status === 'ACTIVE') {
   		console.log('already logged in');
-  		getInfo();
+  		window.location = redirectUrl;
 
 		return;
     }
@@ -40,26 +40,6 @@ else
  
   });
 }
-
-function getInfo() {
-	getUserInfo().done(function(useroutput){
-		let userInfo = parseUserInfo(useroutput);
-		sessionStorage.setItem("userInfo", JSON.stringify(userInfo))
-
-	  	getGroupInfo(userInfo.id).done(function(groupoutput){
-			let groups = parseGroupInfo(groupoutput);
-			sessionStorage.setItem("projects", JSON.stringify(groups));
-	  	});
-	});
-
-	let userInfo = JSON.parse(sessionStorage.getItem("userInfo"))
-	console.log(userInfo)
-	// if (userInfo.status = 'ACTIVE') {
-	// 	window.location = redirectUrl;
-	// }
-}
-
-//getInfo()
 
 
 

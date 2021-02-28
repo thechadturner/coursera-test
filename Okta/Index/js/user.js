@@ -2,6 +2,11 @@ oktaSignIn.session.get(function (res) {
 	// If we get here, the user is already signed in.
 	if (res.status === 'ACTIVE') {
 		let element = document.getElementById("projects")
+
+		if (sessionStorage.getItem("userInfo") === null) {
+			getInfo();
+		}
+
 		let groups = JSON.parse(sessionStorage.getItem("projects"));
 
 		let html = ""
