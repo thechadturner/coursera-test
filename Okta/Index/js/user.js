@@ -3,11 +3,13 @@ oktaSignIn.session.get(function (res) {
 	if (res.status === 'ACTIVE') {
 		let element = document.getElementById("projects")
 
-		console.log(sessionStorage.getItem("userInfo"))
+		console.log(JSON.parse(sessionStorage.getItem("userInfo")));
 
 		if (sessionStorage.getItem("userInfo") === null) {
 			getInfo();
 		}
+
+		console.log(JSON.parse(sessionStorage.getItem("projects")));
 
 		let groups = JSON.parse(sessionStorage.getItem("projects"));
 
