@@ -10,6 +10,7 @@ if (oktaSignIn.token.hasTokensInUrl()) {
         oktaSignIn.tokenManager.add('accessToken', accessToken);
         oktaSignIn.tokenManager.add('idToken', idToken);
 
+        console.log("from token area")
         getUserInfo().done(function(useroutput){
 	    	let userInfo = parseUserInfo(useroutput);
 	  		sessionStorage.setItem("userInfo", JSON.stringify(userInfo))
@@ -37,6 +38,7 @@ else
 
 	// If we get here, the user is already signed in.
   	if (res.status === 'ACTIVE') {
+  		console.log("from alreaded logged in area")
   		getUserInfo().done(function(useroutput){
 	    	let userInfo = parseUserInfo(useroutput);
 	  		sessionStorage.setItem("userInfo", JSON.stringify(userInfo))
