@@ -45,9 +45,9 @@ function buildGroups() {
 			html += "<div id="+group.name+" class='tabcontent'>"
 			html += "<h3>"+group.description+"</h3>"
 			html += "<p>"+group.name+" is the folder name for data files and pages.</p>"
+			html += "</div><br>"
 		});	
-		html += "</div><br>";
-
+		
 		element.innerHTML = html;
 	}
 }
