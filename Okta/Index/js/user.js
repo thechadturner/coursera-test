@@ -7,7 +7,7 @@ oktaSignIn.session.get(function (res) {
 			getInfo();
 		}
 
-		buildGroups();
+		setTimeout(buildGroups, 2000)
 
 	  	return;
 	} 
@@ -35,8 +35,6 @@ function buildGroups() {
 		element.innerHTML = html;
 	}
 }
-
-setTimeout(buildGroups, 5000)
 
 function selectProject(index) {
 	let projects = JSON.parse(sessionStorage.getItem("projects"))
