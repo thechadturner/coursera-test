@@ -1,12 +1,14 @@
 oktaSignIn.session.get(function (res) {
 	// If we get here, the user is already signed in.
 	if (res.status === 'ACTIVE') {
-		let element = document.getElementById("projects")
+		let element = document.getElementById("projects");
 		let userInfo = JSON.parse(sessionStorage.getItem("userInfo"));
 
 		if (userInfo === null) {
 			getInfo();
 		}
+
+		buildGroups();
 
 	  	return;
 	} 
@@ -17,18 +19,24 @@ oktaSignIn.session.get(function (res) {
 });
 
 function buildGroups() {
+	console.log("build groups");
+
 	let groups = JSON.parse(sessionStorage.getItem("projects"));
 
-	let html = ""
-	let index = 0
-	groups.forEach(group => {
-		html += "<button onclick=selectProject("+index+")>"+group.description+"</button>"
-		index += 1
-	});	
-	element.innerHTML = html
+	if (groups != null) {
+		let html = "";
+		let index = 0;
+
+		groups.forEach(group => {
+			html += "<button onclick=selectProject("+index+")>"+group.description+"</button>"
+			index += 1
+		});	
+
+		element.innerHTML = html;
+	}
 }
 
-buildGroups();
+setTimeout(buildGroups(), 3000)
 
 function selectProject(index) {
 	let projects = JSON.parse(sessionStorage.getItem("projects"))
