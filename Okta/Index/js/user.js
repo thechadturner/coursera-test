@@ -7,7 +7,7 @@ oktaSignIn.session.get(function (res) {
 			getInfo();
 		}
 
-		setTimeout(buildGroups, 2000)
+		buildGroups();
 
 	  	return;
 	} 
@@ -41,3 +41,5 @@ function selectProject(index) {
 	localStorage.setItem("selectedProject", JSON.stringify(projects[index]));
 	window.location = 'https://thechadturner.github.io/coursera-test/Okta/Index/project.html';
 }
+
+setTimeout(buildGroups, 2000);
