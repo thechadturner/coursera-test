@@ -1,3 +1,5 @@
+let working = false
+
 var oktaSignIn = new OktaSignIn({
     baseUrl: "https://dev-49934482.okta.com",
     clientId: "0oa7yhklz0BvikmFq5d6",
@@ -145,6 +147,7 @@ function getGroupInfo(userID) {
 }
 
 function getInfo() {
+	working = true;
 	getUserInfo().done(function(useroutput){
 		let userInfo = parseUserInfo(useroutput);
 		sessionStorage.setItem("userInfo", JSON.stringify(userInfo))
@@ -152,6 +155,11 @@ function getInfo() {
 	  	getGroupInfo(userInfo.id).done(function(groupoutput){
 			let groups = parseGroupInfo(groupoutput);
 			sessionStorage.setItem("projects", JSON.stringify(groups));
+			
 	  	});
+
+	  	working = false;
 	});
+	
+	return;
 }

@@ -4,8 +4,12 @@ oktaSignIn.session.get(function (res) {
 		let element = document.getElementById("projects")
 
 		let userInfo = JSON.parse(sessionStorage.getItem("userInfo"));
-		if (userInfo === null || userInfo === undefined) {
+		if (userInfo === null) {
 			getInfo();
+		}
+
+		while (working = true) {
+			console.log("waiting...")
 		}
 
 		let groups = JSON.parse(sessionStorage.getItem("projects"));
@@ -31,3 +35,5 @@ function selectProject(index) {
 	localStorage.setItem("selectedProject", JSON.stringify(projects[index]));
 	window.location = 'https://thechadturner.github.io/coursera-test/Okta/Index/project.html';
 }
+
+location.reload
