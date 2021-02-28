@@ -4,8 +4,9 @@ oktaSignIn.session.get(function (res) {
 		let element = document.getElementById("projects")
 
 		let userInfo = JSON.parse(sessionStorage.getItem("userInfo"));
+		console.log("do we have users yet?")
 		console.log(userInfo)
-		
+
 		if (userInfo === null) {
 			getInfo();
 		}
