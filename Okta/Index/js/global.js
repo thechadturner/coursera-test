@@ -117,7 +117,7 @@ function parseGroupInfo(obj) {
 } 
 
 function getUserInfo() {
-    return $.ajax({
+    return await $.ajax({
 	    url: "https://dev-49934482.okta.com/api/v1/users/me",
 	    type: 'GET',
 	    dataType: 'json',
@@ -131,7 +131,7 @@ function getUserInfo() {
 }
 
 function getGroupInfo(userID) {
-    return $.ajax({
+    return await $.ajax({
 	    url: "https://dev-49934482.okta.com/api/v1/users/"+userID+"/groups",
 	    type: 'GET',
 	    dataType: 'json',
@@ -145,7 +145,7 @@ function getGroupInfo(userID) {
 }
 
 function getInfo() {
-	await getUserInfo().done(function(useroutput){
+	getUserInfo().done(function(useroutput){
 		let userInfo = parseUserInfo(useroutput);
 		sessionStorage.setItem("userInfo", JSON.stringify(userInfo))
 
