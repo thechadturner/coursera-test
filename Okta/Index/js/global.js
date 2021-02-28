@@ -147,19 +147,13 @@ function getGroupInfo(userID) {
 }
 
 function getInfo() {
-	working = true;
 	getUserInfo().done(function(useroutput){
 		let userInfo = parseUserInfo(useroutput);
-		sessionStorage.setItem("userInfo", JSON.stringify(userInfo))
+		sessionStorage.setItem("userInfo", JSON.stringify(userInfo));
 
 	  	getGroupInfo(userInfo.id).done(function(groupoutput){
 			let groups = parseGroupInfo(groupoutput);
 			sessionStorage.setItem("projects", JSON.stringify(groups));
-			
 	  	});
-
-	  	working = false;
 	});
-	
-	return;
 }
