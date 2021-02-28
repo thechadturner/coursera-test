@@ -9,11 +9,11 @@ oktaSignIn.session.get(function (res) {
 	if (res.status === 'ACTIVE') {
 	    getUserInfo().done(function(useroutput){
 	    	let userInfo = parseUserInfo(useroutput);
-	  		sessionStorage.setItem("userInfo", userInfo)
+	  		sessionStorage.setItem("userInfo", JSON.stringify(userInfo))
 
 		  	getGroupInfo(userInfo.id).done(function(groupoutput){
 				let groups = parseGroupInfo(groupoutput);
-				sessionStorage.setItem("projects", groups);
+				sessionStorage.setItem("projects", JSON.stringify(groups));
 
 				let allowaccess = false;
 				groups.forEach(group => {
