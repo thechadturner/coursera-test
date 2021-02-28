@@ -3,11 +3,11 @@ oktaSignIn.session.get(function (res) {
 	if (res.status === 'ACTIVE') {	
 	    getUserInfo().done(function(useroutput){
 		  	let userInfo = parseUserInfo(useroutput);
-		  	sessionStorage.setItem("userInfo", userInfo.toString())
+		  	sessionStorage.setItem("userInfo", JSON.stringify(userInfo.toString))
 
 		  	getGroupInfo(userInfo.id).done(function(groupoutput){
 				let groups = parseGroupInfo(groupoutput);
-				sessionStorage.setItem("projects", groups.toString())
+				sessionStorage.setItem("projects", JSON.stringify(groups))
 
 				let element = document.getElementById("projects")
 				let html = ""
@@ -35,7 +35,7 @@ oktaSignIn.session.get(function (res) {
 });
 
 function selectProject(index) {
-	let projects = sessionStorage.getItem("projects")
+	let projects = JSON.parse(sessionStorage.getItem("projects"))
 	console.log(projects)
 
 	// localStorage.setItem("selectedProjectName", name);
