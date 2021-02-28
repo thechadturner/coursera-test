@@ -15,6 +15,8 @@ if (oktaSignIn.token.hasTokensInUrl()) {
 	    	let userInfo = parseUserInfo(useroutput);
 	  		sessionStorage.setItem("userInfo", JSON.stringify(userInfo))
 
+	  		console.log(userInfo)
+
 	  		let labeltext = userInfo.firstName + "'s Projects"
 	  		document.getElementById("back").innerHTML = "<a href='Index/user.html'><h3>"+labeltext+"</h3></a>"; 
 
