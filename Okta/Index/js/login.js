@@ -24,7 +24,7 @@ if (oktaSignIn.token.hasTokensInUrl()) {
 		  	});
 	    });
 
-		window.location = redirectUrl;
+		// window.location = redirectUrl;
     },
     function error(err) {
       console.error(err);
@@ -52,7 +52,7 @@ else
 		  	});
 	    });
 
-		window.location = redirectUrl;
+		// window.location = redirectUrl;
 		return;
     }
 
