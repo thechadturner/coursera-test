@@ -30,6 +30,7 @@ else
 	oktaSignIn.renderEl(
       { el: '#okta-login-container' },
       function success(res) {
+      	getInfo();
       },
       function error(err) {
         console.error(err);
@@ -57,7 +58,7 @@ function getInfo() {
 	// }
 }
 
-getInfo()
+//getInfo()
 
 
 
