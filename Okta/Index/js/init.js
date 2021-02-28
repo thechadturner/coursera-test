@@ -18,6 +18,6 @@ oktaSignIn.session.get(function (res) {
 	} 
 	else 
 	{
-		document.getElementById("back").innerHTML = "<a href="Index/login.html"><h3>Login</h3></a>"; 
+		document.getElementById("back").innerHTML = "<a href='Index/login.html'><h3>Login</h3></a>"; 
 	}
 });
