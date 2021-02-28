@@ -4,6 +4,8 @@ oktaSignIn.session.get(function (res) {
 		let element = document.getElementById("projects")
 
 		let userInfo = JSON.parse(sessionStorage.getItem("userInfo"));
+		console.log(userInfo)
+		
 		if (userInfo === null) {
 			getInfo();
 		}
@@ -21,7 +23,7 @@ oktaSignIn.session.get(function (res) {
 		});	
 		element.innerHTML = html
 
-		console.log("element comppleted")
+		console.log("element completed")
 
 	  	return;
 	} 
