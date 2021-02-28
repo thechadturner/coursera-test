@@ -51,9 +51,10 @@ function getInfo() {
 	});
 
 	let userInfo = JSON.parse(sessionStorage.getItem("userInfo"))
-	if (userInfo.status = 'ACTIVE') {
-		window.location = redirectUrl;
-	}
+	console.log(userInfo)
+	// if (userInfo.status = 'ACTIVE') {
+	// 	window.location = redirectUrl;
+	// }
 }
 
 getInfo()
