@@ -5,7 +5,7 @@ oktaSignIn.session.get(function (res) {
 	    	let userInfo = parseUserInfo(useroutput);
 	  		sessionStorage.setItem("userInfo", JSON.stringify(userInfo))
 
-	  		let labeltext = userinfo.firstName + "'s Projects"
+	  		let labeltext = userInfo.firstName + "'s Projects"
 	  		document.getElementById("back").innerHTML = "<a href='Index/user.html'><h3>"+labeltext+"</h3></a>"; 
 
 		  	getGroupInfo(userInfo.id).done(function(groupoutput){
