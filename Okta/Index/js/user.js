@@ -24,13 +24,15 @@ function buildGroups() {
 	let groups = JSON.parse(sessionStorage.getItem("projects"));
 
 	if (groups != null) {
-		let html = "";
+		let html = "<div class='tab'>";
 		let index = 0;
 
 		groups.forEach(group => {
-			html += "<button onclick=selectProject("+index+")>"+group.description+"</button>"
+			// html += "<button onclick=selectProject("+index+")>"+group.description+"</button>"
+			html += "<button class='tablinks'>"+group.description+"</button>"
 			index += 1
 		});	
+		html += "</div>";
 
 		element.innerHTML = html;
 	}
