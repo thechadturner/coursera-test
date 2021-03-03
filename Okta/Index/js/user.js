@@ -7,6 +7,8 @@ oktaSignIn.session.get(function (res) {
 			getInfo();
 		}
 
+		console.log(userInfo);
+
 		buildGroups();
 
 	  	return;
