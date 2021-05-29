@@ -1,8 +1,9 @@
 let working = false
+let dns = "http://104.211.43.192/"
 
 var oktaSignIn = new OktaSignIn({
     baseUrl: "https://dev-49934482.okta.com",
-    clientId: "0oa7yhklz0BvikmFq5d6",
+    clientId: "0oa91qqhzQkCZrZ2R5d6",
     authParams: {
       issuer: "default",
       responseType: ['token', 'id_token'],
@@ -15,7 +16,7 @@ function logout() {
   oktaSignIn.signOut();
   oktaSignIn.signOut();
   localStorage.setItem("selectedProject", undefined);
-  window.location = 'https://thechadturner.github.io/coursera-test/Okta/Index/login.html';
+  window.location = dns + 'Index/login.html';
 }
 
 function parseUserInfo(obj) {

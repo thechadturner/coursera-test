@@ -1,4 +1,4 @@
-var redirectUrl = 'https://thechadturner.github.io/coursera-test/Okta/Index/user.html';
+var redirectUrl = dns + 'Index/user.html';
 
 if (oktaSignIn.token.hasTokensInUrl()) {
   oktaSignIn.token.parseTokensFromUrl(
@@ -11,6 +11,7 @@ if (oktaSignIn.token.hasTokensInUrl()) {
         oktaSignIn.tokenManager.add('idToken', idToken);
 
         console.log('logged in');
+        // console.log(redirectUrl);
         window.location = redirectUrl;
     },
     function error(err) {
@@ -24,6 +25,7 @@ else
 	// If we get here, the user is already signed in.
   	if (res.status === 'ACTIVE') {
   		console.log('already logged in');
+  		// console.log(redirectUrl);
   		window.location = redirectUrl;
 
 		return;

@@ -15,7 +15,7 @@ oktaSignIn.session.get(function (res) {
 	} 
 	else 
 	{
-		window.location = 'https://thechadturner.github.io/coursera-test/Okta/Index/login.html'; 
+		window.location = dns + 'Index/login.html'; 
 	}
 });
 
@@ -82,7 +82,7 @@ function openProject(evt, name) {
 function selectProject(index) {
 	let projects = JSON.parse(sessionStorage.getItem("projects"))
 	localStorage.setItem("selectedProject", JSON.stringify(projects[index]));
-	window.location = 'https://thechadturner.github.io/coursera-test/Okta/Index/project.html';
+	window.location = dns + 'Index/project.html';
 }
 
 setTimeout(buildGroups, 2000);
